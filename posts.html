@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script defer src="./assets/js/posts.js"></script>
+    <link rel="stylesheet" href="./assets/css/layout.css">
+    <title>Posts</title>
+</head>
+
+<body>
+    <h1>Welcome to posts.</h1>
+
+    <form enctype="multipart/form-data">
+        <label for="title">Title:</label>
+        <input type="text" id="title" name="title" required>
+
+        <label for="category">Category:</label>
+        <input type="text" id="category" name="category" required>
+
+        <label for="content">Content:</label>
+        <textarea rows="5" cols="33" id="content" name="content"></textarea>
+
+        <label for="file">Image:</label>
+        <input type="file" id="file" name="image" required>
+
+        <button type="submit">Submit</button>
+    </form>
+
+    <button id="viewBtn">View Posts</button>
+    <div id="postDataContainer"></div>
+
+</body>
+
+</html>

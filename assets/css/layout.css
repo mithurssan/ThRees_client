@@ -1,0 +1,40 @@
+body {
+    background-color: #999;
+}
+
+.postDataContainer {
+    margin: 10px 20%;
+    margin-bottom: 10px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    background-color: #c2b2b2;
+}
+
+.title {
+    font-weight: bold;
+    font-size: 20px;
+    margin-bottom: 5px;
+}
+
+.category {
+    font-size: 20px;
+    color: #585656;
+    margin-bottom: 5px;
+}
+
+.image {
+    max-width: 50%;
+    height: auto;
+    margin-bottom: 5px;
+}
+
+.content {
+    font-size: 20px;
+    margin-bottom: 5px;
+}
+
+
+
+
+
+
