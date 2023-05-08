@@ -28,12 +28,28 @@ const postForm = async (post_title, post_content, post_category, post_image) => 
     const data = await response.json();
     console.log(data);
     if (data.error) {
-        alert(data.error);
+        showAlert(data.error, "danger");
     } else {
-        alert("Success.")
+        showAlert("Form submitted!", "success");
     }
     form.reset();
 }
+
+
+const showAlert = (message, type) => {
+    const alertElement = document.createElement("div");
+    alertElement.classList.add("alert", `alert-${type}`);
+    alertElement.setAttribute("role", "alert");
+    alertElement.textContent = message;
+
+    form.appendChild(alertElement);
+
+    setTimeout(() => {
+        alertElement.remove();
+    }, 1500);
+}
+
+
 
 const viewBtn = document.getElementById("viewBtn");
 
