@@ -1,5 +1,25 @@
+.bg-color {
+    background-color: #BACDB0;
+}
+
 body {
-    background-color: #999;
+    min-height: 100vh;
+    background: linear-gradient(to bottom, #729B79, #475B63 70%);
+}
+
+.banner-title {
+    background-image: url("../ThRees_banner.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    padding: 30px;
+    display: flex;
+    justify-content: center;
+}
+
+h1 {
+    background-color: #BACDB0;
+    padding: 2px 30px;
+    border-radius: 10px;
 }
 
 .postDataContainer {

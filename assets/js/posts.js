@@ -1,14 +1,15 @@
-const button = document.querySelector("button");
+const submitBtn = document.getElementById("submitBtn");
+const form = document.getElementById("post-form");
 
-button.addEventListener("click", (event) => {
-    const title = document.getElementById("title");
-    const content = document.getElementById("content");
-    const category = document.getElementById("category");
+form.addEventListener("submit", (event) => {
+    event.preventDefault();
+    const title = document.getElementById("title").value;
+    const content = document.getElementById("content").value;
+    const category = document.getElementById("category").value;
     const fileInput = document.getElementById('file');
     const file = fileInput.files[0];
 
-    event.preventDefault();
-    postForm(title.value, content.value, category.value, file)
+    postForm(title, content, category, file);
 })
 
 const postForm = async (post_title, post_content, post_category, post_image) => {
@@ -16,7 +17,7 @@ const postForm = async (post_title, post_content, post_category, post_image) => 
     formData.append("post_title", post_title);
     formData.append("post_content", post_content);
     formData.append("post_category", post_category);
-    formData.append("image", post_image);
+    formData.append("post_image", post_image);
 
     const response = await fetch("http://localhost:3000/posts", {
         method: "POST",
@@ -31,6 +32,7 @@ const postForm = async (post_title, post_content, post_category, post_image) => 
     } else {
         alert("Success.")
     }
+    form.reset();
 }
 
 const viewBtn = document.getElementById("viewBtn");
