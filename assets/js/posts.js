@@ -30,9 +30,9 @@ const postForm = async (post_title, post_content, post_category, post_image) => 
     if (data.error) {
         showAlert(data.error, "danger");
     } else {
-        showAlert("Form submitted!", "success");
+        showAlert("Post submitted!", "success");
+        form.reset();
     }
-    form.reset();
 }
 
 
