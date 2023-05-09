@@ -1,5 +1,6 @@
 const localURL = "http://localhost:3000/waste"
 
+
 const postcodeForm = document.getElementById('postcode-form');
 const addForm = document.getElementById('create-form');
 const updateForm = document.getElementById('patch-form');
