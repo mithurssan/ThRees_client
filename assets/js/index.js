@@ -11,11 +11,15 @@ const viewPosts = async () => {
         alert(data.error);
     }
     const container = document.getElementById("postDataContainer");
+    const category_title = document.querySelector(".category-title");
+
     while (container.firstChild) {
         container.removeChild(container.firstChild);
+        category_title.removeChild(category_title.firstChild);
     }
+
     const categoryNameElement = document.createElement("h1");
-    document.querySelector(".category-title").appendChild(categoryNameElement);
+    category_title.appendChild(categoryNameElement);
 
     data.forEach(post => {
         let id = post.id;
