@@ -1,3 +1,20 @@
+@import url("base.css");
+
+.hero-banner {
+    background-color: #BACDB0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-image: url(../images/hero-banner.jpg);
+    background-repeat: no-repeat;
+    background-position: center;
+    width: 100vw;
+    height: 18rem;
+    flex-direction: column;
+}
+
+/* Create post form */
+
 .post-form-container {
     margin-top: 15px;
     display: flex;
@@ -45,4 +62,43 @@ form label {
     bottom: 0;
     right: 25%;
     text-align: center;
+}
+
+.dropdown-item:hover {
+    cursor: pointer;
+  }
+  
+
+
+/* Post container */
+
+.postDataContainer {
+    margin: 10px 20%;
+    margin-bottom: 10px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    background-color: #c2b2b2;
+}
+
+.title {
+    font-weight: bold;
+    font-size: 20px;
+    margin-bottom: 5px;
+}
+
+.category-name {
+    font-size: 20px;
+    color: #585656;
+    margin-bottom: 5px;
+}
+
+.image {
+    max-width: 50%;
+    height: auto;
+    margin-bottom: 5px;
+}
+
+.content {
+    font-size: 20px;
+    margin-bottom: 5px;
 }

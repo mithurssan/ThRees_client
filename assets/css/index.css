@@ -22,9 +22,10 @@
     cursor: pointer;
 }
 
-.category h2 {
-    border-radius: 10px;
+.category h6 {
     background-color: #BACDB0;
+    font-weight: bold;
+    border-radius: 10px;
 }
 
 .category-all {
@@ -49,9 +50,4 @@
 
 .category-wood {
     background-image: url("../images/categories/wood.jpg");
-}
-
-
-.active_tab {
-    display: block;
 }
