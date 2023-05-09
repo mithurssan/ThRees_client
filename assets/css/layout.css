@@ -8,7 +8,7 @@ body {
 }
 
 .banner-title {
-    background-image: url("../ThRees_banner.jpg");
+    background-image: url("../images/ThRees_banner.jpg");
     background-repeat: no-repeat;
     background-size: cover;
     padding: 30px;
@@ -16,7 +16,7 @@ body {
     justify-content: center;
 }
 
-h1 {
+.banner-title h1 {
     background-color: #BACDB0;
     padding: 2px 30px;
     border-radius: 10px;
@@ -36,7 +36,7 @@ h1 {
     margin-bottom: 5px;
 }
 
-.category {
+.category-name {
     font-size: 20px;
     color: #585656;
     margin-bottom: 5px;
