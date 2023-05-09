@@ -56,7 +56,7 @@
   <div id="tabs">
     <div id="postcode-seacher">
       <h2 id="postcode-title">Check your area!</h2>
-      <form id="postcode-form" method="get">
+      <form id="postcode-form" method="get" class="flex-container-column">
         <label for="postcode-search">Enter your postcode:</label>
         <input type="text" id="postcode-search" name="postcode" required>
         <input type="submit"></input>
@@ -66,17 +66,41 @@
     </div>
     <div id="postcode-creater">
       <h2>Add your area!</h2>
-      <form action="post" id="create-form">
+      <form id="create-form" method="post" class="flex-container-column">
         <label for="postcode-create">Enter your postcode:</label>
         <input type="text" id="postcode-create" name="postcode" required>
-        <input type="submit"></input>
-      </form>
+        <label for="recycling-days">recycling days:</label>
+        <input type="number" name="recyclingDays" min="0">
+        <label for="recycling-date">recycling date:</label>
+        <input type="date" name="recyclingDate">
+        <label for="general-days">general days:</label>
+        <input type="number" name="generalDays" min="0">
+        <label for="general-date">general date:</label>
+        <input type="date" name="generalDate">
+        <label for="compost-days">compost days:</label>
+        <input type="number" name="compostDays" min="0">
+        <label for="compost-date">compost date:</label>
+        <input type="date" name="compostDate">
+        <input type="submit">
+      </form>      
     </div>
     <div id="postcode-updater">
       <h2>Update your area!</h2>
-      <form action="patch" id="patch-form">
+      <form action="patch" id="patch-form" class="flex-container-column">
         <label for="postcode-patch">Enter your postcode:</label>
         <input type="text" id="postcode-patch" name="postcode" required>
+        <label for="recycling-days">recycling days:</label>
+        <input type="number" name="recyclingDays" min="0">
+        <label for="recycling-date">recycling date:</label>
+        <input type="date" name="recyclingDate">
+        <label for="general-days">general days:</label>
+        <input type="number" name="generalDays" min="0">
+        <label for="general-date">general date:</label>
+        <input type="date" name="generalDate">
+        <label for="compost-days">compost days:</label>
+        <input type="number" name="compostDays" min="0">
+        <label for="compost-date">compost date:</label>
+        <input type="date" name="compostDate">
         <input type="submit"></input>
       </form>
     </div>
