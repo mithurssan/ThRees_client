@@ -1,0 +1,29 @@
+.bg-color {
+    background-color: #BACDB0;
+}
+
+body {
+    min-height: 100vh;
+    background-image: linear-gradient(315deg, #729B79 0%, #475B63 67%, #729B79 100%);
+}
+
+/* .banner-title {
+    background-image: url("../images/ThRees_banner.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    padding: 30px;
+    display: flex;
+    justify-content: center;
+}
+
+.banner-title h1 {
+    background-color: #BACDB0;
+    padding: 2px 30px;
+    border-radius: 10px;
+} */
+
+
+
+
+
+
