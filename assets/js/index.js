@@ -42,8 +42,6 @@ const viewPosts = async () => {
         const imageElement = document.createElement("img");
         const contentElement = document.createElement("p");
 
-        console.log(post);
-
         postDataElement.classList.add("postDataContainer");
         heading.classList.add("post-header");
         title_date.classList.add("post-header");
