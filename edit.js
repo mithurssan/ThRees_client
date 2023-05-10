@@ -26,7 +26,7 @@ createUserForm.addEventListener('submit', async (event) => {
   formData.append('profilePic', profilePic);
 
   const response = await fetch('/api/users', {
-    method: 'POST',
+    method: 'PATCH',
     body: formData
   });
 
