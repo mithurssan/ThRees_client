@@ -3,15 +3,15 @@ const signupForm = document.getElementById('signup-form');
 signupForm.addEventListener('submit', async (event) => {
   event.preventDefault();
 
-  const email = document.getElementById('Username').value;
+  const username = document.getElementById('username').value;
   const password = document.getElementById('password').value;
 
-  const response = await fetch('/api/signup', {
+  const response = await fetch('http://localhost:3000/users', {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json'
     },
-    body: JSON.stringify({ email, password })
+    body: JSON.stringify({ username, password })
   });
 
   if (response.ok) {
@@ -25,3 +25,5 @@ signupForm.addEventListener('submit', async (event) => {
     // Handle the error
   }
 });
+
+
