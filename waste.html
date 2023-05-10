@@ -23,7 +23,7 @@
       <a class="navbar-brand" href="index.html"><img src="./images/ThRees_Logo.png" alt="Logo"
           class="d-inline-block align-text-top logo-img" />
       </a>
-      <a class="nav-link" id="nav-title" aria-current="page" href="index.html">ThRees</a>
+      <a class="nav-link" id="nav-title" href="index.html">ThRees</a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo02"
         aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
@@ -31,16 +31,16 @@
       <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
         <ul class="navbar-nav ms-auto">
           <li class="nav-item">
-            <a class="nav-link" aria-current="page" href="index.html">Home</a>
+            <a class="nav-link" href="index.html">Home</a>
           </li>
           <li class="nav-item">
             <a class="nav-link active" aria-current="page" href="waste.html">Waste</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link">Create Post</a>
+            <a class="nav-link" href="./posts.html">Create Post</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link">Log In</a>
+            <a class="nav-link" href="./signUp.html">Log In</a>
           </li>
         </ul>
         <!-- <form class="d-flex" role="search">
@@ -120,20 +120,20 @@
       <form action="patch" id="patch-form" class="flex-container-column">
         <label for="postcode-patch">Enter your postcode:</label>
         <input type="text" id="postcode-patch" name="postcode" required>
-    
+
         <label for="waste-type">Select waste type:</label>
         <select id="waste-type" name="wasteType">
           <option value="recycling">Recycling</option>
           <option value="general">General</option>
           <option value="compost">Compost</option>
         </select>
-    
+
         <label for="waste-days">Waste days:</label>
+
         <input type="number" id="update-days" name="wasteDays" min="0" required>
     
         <label for="waste-date">Waste date:</label>
         <input type="date" id="update-date" name="wasteDate" required>
-    
         <input type="submit">
       </form>
     </div>
