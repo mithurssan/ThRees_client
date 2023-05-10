@@ -56,7 +56,7 @@
     <h2>CHECKER</h2>
   </div>
   <div id="tabs">
-    <div id="postcode-seacher">
+    <div id="postcode-searcher">
       <h2 id="postcode-title">Check your area!</h2>
       <form id="postcode-form" method="get" class="flex-container-column">
         <label for="postcode-search">Enter your postcode:</label>
@@ -129,10 +129,10 @@
         </select>
     
         <label for="waste-days">Waste days:</label>
-        <input type="number" id="update-days" name="wasteDays" min="0">
+        <input type="number" id="update-days" name="wasteDays" min="0" required>
     
         <label for="waste-date">Waste date:</label>
-        <input type="date" id="update-date" name="wasteDate">
+        <input type="date" id="update-date" name="wasteDate" required>
     
         <input type="submit">
       </form>

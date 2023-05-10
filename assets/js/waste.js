@@ -107,46 +107,44 @@ addSubmitForm.addEventListener('submit', async (e) => {
 });
 
 
-// updateForm.addEventListener('submit', async (e) => {
-//     e.preventDefault();
+updateForm.addEventListener('submit', async (e) => {
+    e.preventDefault();
 
-//     const postcode = e.target.postcode.value;
+    // const postcode = e.target.postcode.value;
 
-//     const data = {
-//         recycling_days: e.target.recyclingDays.value,
-//         recycling_last_collection: e.target.recyclingDate.value,
-//         general_days: e.target.generalDays.value,
-//         general_last_collection: e.target.generalDate.value,
-//         compost_days: e.target.compostDays.value,
-//         compost_last_collection: e.target.compostDate.value
-//     };
+    const postcode = document.getElementById("postcode-patch").value;
+    const wasteType = document.getElementById("waste-type").value;
+    const wasteDays = document.getElementById("update-days").value;
+    const wasteDate = document.getElementById("update-date").value;
 
-//     const filteredData = Object.fromEntries(
-//         Object.entries(data)
-//             .filter(([key, value]) => value !== "" && value !== null && value !== undefined)
-//     );
+    const data = {
+        [`${wasteType}_days`]: wasteDays,
+        [`${wasteType}_last_collection`]: wasteDate,
+        waste_postcode: postcode
+    }
 
-//     fetch(`http://localhost:3000/waste/${postcode}`, {
-//         method: "PATCH",
-//         headers: {
-//             "Content-Type": "application/json"
-//         },
-//         body: JSON.stringify(filteredData)
-//     })
-//         .then(response => {
-//             if (response.ok) {
-//                 console.log("Success:", response);
-//                 updateForm.reset();
-//             } else {
-//                 console.error("Error:", response.status);
-//             }
-//         })
-//         .catch(error => {
-//             console.error("Error:", error);
-//             updateForm.reset();
-//         });
+    try {
+        const response = await fetch(`http://localhost:3000/waste/${postcode}`, {
+            method: "PATCH",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify(data)
+        });
 
-// });
+        if (response.ok) {
+            console.log("Success:", response);
+            updateForm.reset();
+        } else {
+            console.error("Error:", response.status);
+            updateForm.reset();
+        }
+    } catch (error) {
+        console.error("Error:", error);
+        updateForm.reset();
+    }
+});
+
 
 
 
