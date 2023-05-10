@@ -12,6 +12,7 @@
     integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe"
     crossorigin="anonymous"></script>
   <script defer src="./assets/js/waste.js"></script>
+  <script defer src="./assets/js/wasteFunctions.js"></script>
   <link rel="shortcut icon" href="./images/logo_favicon.png" type="image/x-icon">
   <title>ThRees</title>
 </head>
@@ -22,7 +23,7 @@
       <a class="navbar-brand" href="index.html"><img src="./images/ThRees_Logo.png" alt="Logo"
           class="d-inline-block align-text-top logo-img" />
       </a>
-      <a class="nav-link" id="nav-title" aria-current="page" href="index.html">ThRees</a>
+      <a class="nav-link" id="nav-title" href="index.html">ThRees</a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo02"
         aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
@@ -30,16 +31,16 @@
       <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
         <ul class="navbar-nav ms-auto">
           <li class="nav-item">
-            <a class="nav-link" aria-current="page" href="index.html">Home</a>
+            <a class="nav-link" href="index.html">Home</a>
           </li>
           <li class="nav-item">
             <a class="nav-link active" aria-current="page" href="waste.html">Waste</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link">Create Post</a>
+            <a class="nav-link" href="./posts.html">Create Post</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link">Log In</a>
+            <a class="nav-link" href="./signUp.html">Log In</a>
           </li>
         </ul>
         <!-- <form class="d-flex" role="search">
@@ -49,6 +50,7 @@
           </div> -->
       </div>
   </nav>
+
   <div class="hero-banner">
     <h1>POSTCODE</h1>
     <h2>CHECKER</h2>
@@ -64,46 +66,78 @@
       <ul id="waste-data">
       </ul>
     </div>
-    <div id="postcode-creater">
-      <h2>Add your area!</h2>
-      <form id="create-form" method="post" class="flex-container-column">
-        <label for="postcode-create">Enter your postcode:</label>
-        <input type="text" id="postcode-create" name="postcode" required>
-        <label for="recycling-days">recycling days:</label>
-        <input type="number" name="recyclingDays" min="0">
-        <label for="recycling-date">recycling date:</label>
-        <input type="date" name="recyclingDate">
-        <label for="general-days">general days:</label>
-        <input type="number" name="generalDays" min="0">
-        <label for="general-date">general date:</label>
-        <input type="date" name="generalDate">
-        <label for="compost-days">compost days:</label>
-        <input type="number" name="compostDays" min="0">
-        <label for="compost-date">compost date:</label>
-        <input type="date" name="compostDate">
-        <input type="submit">
-      </form>      
+
+    <div class="flex-container" id="postcode-creater">
+      <h2>Add your postcode!</h2>
+      <form id="add-recycling-form" class="add-form">
+        <h4>Recycling</h4>
+        <label for="postcode">Enter Postcode: </label>
+        <input type="text" name="postcode" id="postcode">
+        <label for="days">Enter days: </label>
+        <input type="number" name="days" id="days" min="0">
+        <label for="date">Pick Date: </label>
+        <input type="date" name="date" id="date">
+        <input type="submit" value="next">
+      </form>
+      <form id="add-general-form" class="add-form">
+        <h4>General</h4>
+        <!-- <label for="postcode">Enter Postcode: </label>
+          <input type="text" name="postcode" id="postcode"> -->
+        <label for="days">Enter days: </label>
+        <input type="number" name="days" id="days" min="0">
+        <label for="date">Pick Date: </label>
+        <input type="date" name="date" id="date">
+        <input type="submit" value="next">
+        <button type="button" class="add-back-btn">Back</button>
+      </form>
+      <form id="add-compost-form" class="add-form">
+        <h4>compost</h4>
+        <!-- <label for="postcode">Enter Postcode: </label>
+          <input type="text" name="postcode" id="postcode"> -->
+        <label for="days">Enter days: </label>
+        <input type="number" name="days" id="days" min="0">
+        <label for="date">Pick Date: </label>
+        <input type="date" name="date" id="date">
+        <input type="submit" value="next">
+        <button type="button" class="add-back-btn">Back</button>
+      </form>
+      <div>
+        <h3 id="add-new-postcode">
+
+        </h3>
+        <ul id="listAdd">
+
+        </ul>
+        <form method="POST" id="add-submit-new">
+          <input type="submit">
+          <button type="button" id="add-restart-button">Edit</button>
+        </form>
+      </div>
     </div>
+
     <div id="postcode-updater">
       <h2>Update your area!</h2>
       <form action="patch" id="patch-form" class="flex-container-column">
         <label for="postcode-patch">Enter your postcode:</label>
         <input type="text" id="postcode-patch" name="postcode" required>
-        <label for="recycling-days">recycling days:</label>
-        <input type="number" name="recyclingDays" min="0">
-        <label for="recycling-date">recycling date:</label>
-        <input type="date" name="recyclingDate">
-        <label for="general-days">general days:</label>
-        <input type="number" name="generalDays" min="0">
-        <label for="general-date">general date:</label>
-        <input type="date" name="generalDate">
-        <label for="compost-days">compost days:</label>
-        <input type="number" name="compostDays" min="0">
-        <label for="compost-date">compost date:</label>
-        <input type="date" name="compostDate">
-        <input type="submit"></input>
+
+        <label for="waste-type">Select waste type:</label>
+        <select id="waste-type" name="wasteType">
+          <option value="recycling">Recycling</option>
+          <option value="general">General</option>
+          <option value="compost">Compost</option>
+        </select>
+
+        <label for="waste-days">Waste days:</label>
+        <input type="number" id="update-days" name="wasteDays" min="0">
+
+        <label for="waste-date">Waste date:</label>
+        <input type="date" id="update-date" name="wasteDate">
+
+        <input type="submit">
       </form>
     </div>
+
   </div>
 </body>
 
