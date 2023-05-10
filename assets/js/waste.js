@@ -4,9 +4,11 @@ const localURL = "http://localhost:3000/waste"
 const postcodeForm = document.getElementById('postcode-form');
 const addForm = document.getElementById('create-form');
 const updateForm = document.getElementById('patch-form');
+const addSubmitForm = document.getElementById('add-submit-new')
+
 
 const postcodeTitle = document.getElementById('postcode-title');
-const ul = document.getElementById('waste-data');
+const showList = document.getElementById('waste-data');
 
 postcodeForm.addEventListener('submit', (event) => {
     event.preventDefault();
@@ -18,7 +20,7 @@ postcodeForm.addEventListener('submit', (event) => {
         .then(response => response.json())
         .then((data) => {
             console.log(data);
-            ul.innerHTML = '';
+            showList.innerHTML = '';
             for (const key in data) {
 
                 const wasteType = capitalise(key.split('_')[0])
@@ -27,21 +29,22 @@ postcodeForm.addEventListener('submit', (event) => {
                     const date = new Date(data[key]);
                     const li = document.createElement('li');
                     li.textContent = `${(wasteType)} next collection: ${date.toDateString()}`;
-                    ul.appendChild(li);
+                    showList.appendChild(li);
 
                 }
                 else if (data[key] !== null && data[key] !== undefined && key.includes('_last_collection')) {
                     const date = new Date(data[key]);
                     const li = document.createElement('li');
                     li.textContent = `${(wasteType)} last collection: ${date.toDateString()}`;
-                    ul.appendChild(li);
+                    showList.appendChild(li);
 
                 }
                 else if ((data[key] === null || data[key] === undefined) && (key.includes('_next_collection') || key.includes('_last_collection'))) {
                     const li = document.createElement('li');
                     li.textContent = `${wasteType} collection: Not available`;
-                    ul.appendChild(li);
-                }                
+                    showList.appendChild(li);
+
+                }
             }
 
             postcodeForm.reset();
@@ -49,90 +52,142 @@ postcodeForm.addEventListener('submit', (event) => {
         .catch((error) => {
             console.error(error)
             postcodeForm.reset();
+
         });
+
 });
 
-addForm.addEventListener('submit', async (e) => {
+addSubmitForm.addEventListener('submit', async (e) => {
     e.preventDefault();
 
-
-    const data = {
-        waste_postcode: e.target.postcode.value,
-        recycling_days: e.target.recyclingDays.value,
-        recycling_last_collection: e.target.recyclingDate.value,
-        general_days: e.target.generalDays.value,
-        general_last_collection: e.target.generalDate.value,
-        compost_days: e.target.compostDays.value,
-        compost_last_collection: e.target.compostDate.value
-    };
-
     const filteredData = Object.fromEntries(
-        Object.entries(data)
+        Object.entries(addData)
             .filter(([key, value]) => value !== "" && value !== null && value !== undefined)
+
+    );
+    console.log(filteredData);
+
+    // Check if at least one _days and _last_collection pair exists
+    const hasWasteData = (
+        (filteredData.recycling_days && filteredData.recycling_last_collection) ||
+        (filteredData.general_days && filteredData.general_last_collection) ||
+        (filteredData.compost_days && filteredData.compost_last_collection)
+
     );
 
-    fetch("http://localhost:3000/waste", {
-        method: "POST",
-        headers: {
-            "Content-Type": "application/json"
-        },
-        body: JSON.stringify(filteredData)
-    })
+    if (hasWasteData) {
+        fetch("http://localhost:3000/waste", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify(filteredData)
+        })
         .then(response => {
             if (response.ok) {
                 console.log("Success:", response);
-                addForm.reset();
+
+                addRecyclingForm.reset();
+                addGeneralForm.reset();
+                addCompostForm.reset();
+                clearAddForm()
+
             } else {
-                console.error("Error:", response.status);
-                addForm.reset();
+                alert("Error:", err.message);
             }
         })
         .catch(error => {
-            console.error("Error:", error);
+            alert("Error:", error.message);
         });
+
+    } else {
+        alert("Error: At least day between and collection date pair must be provided.");
+    }
 
 });
 
-updateForm.addEventListener('submit', async (e) => {
-    e.preventDefault();
 
-    const postcode = e.target.postcode.value;
+// addForm.addEventListener('submit', async (e) => {
+//     e.preventDefault();
 
-    const data = {
-        recycling_days: e.target.recyclingDays.value,
-        recycling_last_collection: e.target.recyclingDate.value,
-        general_days: e.target.generalDays.value,
-        general_last_collection: e.target.generalDate.value,
-        compost_days: e.target.compostDays.value,
-        compost_last_collection: e.target.compostDate.value
-    };
 
-    const filteredData = Object.fromEntries(
-        Object.entries(data)
-            .filter(([key, value]) => value !== "" && value !== null && value !== undefined)
-    );
+//     const data = {
+//         waste_postcode: e.target.postcode.value,
+//         recycling_days: e.target.recyclingDays.value,
+//         recycling_last_collection: e.target.recyclingDate.value,
+//         general_days: e.target.generalDays.value,
+//         general_last_collection: e.target.generalDate.value,
+//         compost_days: e.target.compostDays.value,
+//         compost_last_collection: e.target.compostDate.value
+//     };
 
-    fetch(`http://localhost:3000/waste/${postcode}`, {
-        method: "PATCH",
-        headers: {
-            "Content-Type": "application/json"
-        },
-        body: JSON.stringify(filteredData)
-    })
-        .then(response => {
-            if (response.ok) {
-                console.log("Success:", response);
-                updateForm.reset();
-            } else {
-                console.error("Error:", response.status);
-            }
-        })
-        .catch(error => {
-            console.error("Error:", error);
-            updateForm.reset();
-        });
+// const filteredData = Object.fromEntries(
+//     Object.entries(data)
+//         .filter(([key, value]) => value !== "" && value !== null && value !== undefined)
+// );
 
-});
+    // fetch("http://localhost:3000/waste", {
+    //     method: "POST",
+    //     headers: {
+    //         "Content-Type": "application/json"
+    //     },
+    //     body: JSON.stringify(filteredData)
+    // })
+    //     .then(response => {
+    //         if (response.ok) {
+    //             console.log("Success:", response);
+    //             addForm.reset();
+    //         } else {
+    //             console.error("Error:", response.status);
+    //             addForm.reset();
+    //         }
+    //     })
+    //     .catch(error => {
+    //         console.error("Error:", error);
+    //     });
+
+// });
+
+// updateForm.addEventListener('submit', async (e) => {
+//     e.preventDefault();
+
+//     const postcode = e.target.postcode.value;
+
+//     const data = {
+//         recycling_days: e.target.recyclingDays.value,
+//         recycling_last_collection: e.target.recyclingDate.value,
+//         general_days: e.target.generalDays.value,
+//         general_last_collection: e.target.generalDate.value,
+//         compost_days: e.target.compostDays.value,
+//         compost_last_collection: e.target.compostDate.value
+//     };
+
+//     const filteredData = Object.fromEntries(
+//         Object.entries(data)
+//             .filter(([key, value]) => value !== "" && value !== null && value !== undefined)
+//     );
+
+//     fetch(`http://localhost:3000/waste/${postcode}`, {
+//         method: "PATCH",
+//         headers: {
+//             "Content-Type": "application/json"
+//         },
+//         body: JSON.stringify(filteredData)
+//     })
+//         .then(response => {
+//             if (response.ok) {
+//                 console.log("Success:", response);
+//                 updateForm.reset();
+//             } else {
+//                 console.error("Error:", response.status);
+//             }
+//         })
+//         .catch(error => {
+//             console.error("Error:", error);
+//             updateForm.reset();
+//         });
+
+// });
 
 
 

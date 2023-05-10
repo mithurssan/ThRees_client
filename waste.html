@@ -12,6 +12,7 @@
     integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe"
     crossorigin="anonymous"></script>
   <script defer src="./assets/js/waste.js"></script>
+  <script defer src="./assets/js/wasteFunctions.js"></script>
   <link rel="shortcut icon" href="./images/logo_favicon.png" type="image/x-icon">
   <title>ThRees</title>
 </head>
@@ -49,6 +50,7 @@
           </div> -->
       </div>
   </nav>
+
   <div class="hero-banner">
     <h1>POSTCODE</h1>
     <h2>CHECKER</h2>
@@ -64,27 +66,56 @@
       <ul id="waste-data">
       </ul>
     </div>
-    <div id="postcode-creater">
-      <h2>Add your area!</h2>
-      <form id="create-form" method="post" class="flex-container-column">
-        <label for="postcode-create">Enter your postcode:</label>
-        <input type="text" id="postcode-create" name="postcode" required>
-        <label for="recycling-days">recycling days:</label>
-        <input type="number" name="recyclingDays" min="0">
-        <label for="recycling-date">recycling date:</label>
-        <input type="date" name="recyclingDate">
-        <label for="general-days">general days:</label>
-        <input type="number" name="generalDays" min="0">
-        <label for="general-date">general date:</label>
-        <input type="date" name="generalDate">
-        <label for="compost-days">compost days:</label>
-        <input type="number" name="compostDays" min="0">
-        <label for="compost-date">compost date:</label>
-        <input type="date" name="compostDate">
-        <input type="submit">
-      </form>      
+
+    <div class="flex-container" id="postcode-creater">
+      <h2>Add your postcode!</h2>
+      <form id="add-recycling-form" class="add-form">
+        <h4>Recycling</h4>
+        <label for="postcode">Enter Postcode: </label>
+        <input type="text" name="postcode" id="postcode">
+        <label for="days">Enter days: </label>
+        <input type="number" name="days" id="days" min="0">
+        <label for="date">Pick Date: </label>
+        <input type="date" name="date" id="date">
+        <input type="submit" value="next">
+      </form>
+      <form id="add-general-form" class="add-form">
+        <h4>General</h4>
+        <!-- <label for="postcode">Enter Postcode: </label>
+          <input type="text" name="postcode" id="postcode"> -->
+        <label for="days">Enter days: </label>
+        <input type="number" name="days" id="days" min="0">
+        <label for="date">Pick Date: </label>
+        <input type="date" name="date" id="date">
+        <input type="submit" value="next">
+        <button type="button" class="add-back-btn">Back</button>
+      </form>
+      <form id="add-compost-form" class="add-form">
+        <h4>compost</h4>
+        <!-- <label for="postcode">Enter Postcode: </label>
+          <input type="text" name="postcode" id="postcode"> -->
+        <label for="days">Enter days: </label>
+        <input type="number" name="days" id="days" min="0">
+        <label for="date">Pick Date: </label>
+        <input type="date" name="date" id="date">
+        <input type="submit" value="next">
+        <button type="button" class="add-back-btn">Back</button>
+      </form>
+      <div>
+        <h3 id="add-new-postcode">
+
+        </h3>
+        <ul id="listAdd">
+
+        </ul>
+        <form method="POST" id="add-submit-new">
+          <input type="submit">
+          <button type="button" id="add-restart-button">Edit</button>
+        </form>
+      </div>
     </div>
-    <div id="postcode-updater">
+
+    <!-- <div id="postcode-updater">
       <h2>Update your area!</h2>
       <form action="patch" id="patch-form" class="flex-container-column">
         <label for="postcode-patch">Enter your postcode:</label>
@@ -103,7 +134,7 @@
         <input type="date" name="compostDate">
         <input type="submit"></input>
       </form>
-    </div>
+    </div> -->
   </div>
 </body>
 
