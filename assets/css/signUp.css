@@ -94,3 +94,19 @@ body {
   left: 0.8rem;
   font-size: 0.8rem;
 }
+
+.navbar {
+  padding: 0;
+}
+
+#van {
+  padding: 0px;
+  background-color: transparent;
+}
+
+@media screen and (max-height:775px){
+  .form {
+    transform: translateY(5rem);
+  }
+  
+}

@@ -1,0 +1,25 @@
+@import url("base.css");
+
+.hero-banner {
+    background-color: #BACDB0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-image: url(../../images/hero-banner.jpg);
+    background-repeat: no-repeat;
+    background-position: center;
+    width: 100vw;
+    height: 18rem;
+    flex-direction: column;
+}
+
+.flex-container-column{
+    display: flex;
+    flex-direction: column;
+}
+
+#tabs{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
