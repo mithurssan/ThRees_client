@@ -14,7 +14,6 @@ postcodeForm.addEventListener('submit', (event) => {
     let postcode = document.getElementById('postcode-search').value;
     postcodeTitle.innerHTML = postcode.toUpperCase();
     const url = `http://localhost:3000/waste/${postcode}`;
-    clearInput('postcode-search')
     fetch(url)
         .then(response => response.json())
         .then((data) => {
@@ -38,16 +37,18 @@ postcodeForm.addEventListener('submit', (event) => {
                     ul.appendChild(li);
 
                 }
-                else if (data[key] === null || data[key] === undefined) {
+                else if ((data[key] === null || data[key] === undefined) && (key.includes('_next_collection') || key.includes('_last_collection'))) {
                     const li = document.createElement('li');
-                    li.textContent = `${(wasteType)} collection: Not available`;
+                    li.textContent = `${wasteType} collection: Not available`;
                     ul.appendChild(li);
-                }
+                }                
             }
 
+            postcodeForm.reset();
         })
         .catch((error) => {
             console.error(error)
+            postcodeForm.reset();
         });
 });
 
@@ -80,8 +81,10 @@ addForm.addEventListener('submit', async (e) => {
         .then(response => {
             if (response.ok) {
                 console.log("Success:", response);
+                addForm.reset();
             } else {
                 console.error("Error:", response.status);
+                addForm.reset();
             }
         })
         .catch(error => {
@@ -119,12 +122,14 @@ updateForm.addEventListener('submit', async (e) => {
         .then(response => {
             if (response.ok) {
                 console.log("Success:", response);
+                updateForm.reset();
             } else {
                 console.error("Error:", response.status);
             }
         })
         .catch(error => {
             console.error("Error:", error);
+            updateForm.reset();
         });
 
 });
