@@ -90,8 +90,8 @@ addSubmitForm.addEventListener('submit', async (e) => {
                 addRecyclingForm.reset();
                 addGeneralForm.reset();
                 addCompostForm.reset();
-                clearAddForm()
-
+                clearAddForm();
+                document.getElementById("postcode-search").value = filteredData.waste_postcode
             } else {
                 alert("Error:", err.message);
             }
@@ -135,13 +135,12 @@ updateForm.addEventListener('submit', async (e) => {
         if (response.ok) {
             console.log("Success:", response);
             updateForm.reset();
+            document.getElementById("postcode-search").value = postcode
         } else {
             console.error("Error:", response.status);
-            updateForm.reset();
         }
     } catch (error) {
         console.error("Error:", error);
-        updateForm.reset();
     }
 });
 
