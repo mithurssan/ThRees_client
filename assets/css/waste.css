@@ -23,3 +23,32 @@
     flex-direction: row;
     justify-content: space-around;
 }
+
+.flex-container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+input{
+    margin: 1rem 0;
+}
+
+#add-general-form{
+    display: none;
+}
+
+#add-compost-form{
+    display: none;
+}
+
+#add-recycling-form{
+    display: flex;
+}
+
+.add-form{
+    display: flex;
+    flex-direction: column;
+    width: 15rem;
+    align-items: center;
+}
