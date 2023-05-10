@@ -13,6 +13,7 @@
     crossorigin="anonymous"></script>
   <script defer src="./assets/js/waste.js"></script>
   <script defer src="./assets/js/wasteFunctions.js"></script>
+  <script defer src="https://kit.fontawesome.com/abdde26339.js" crossorigin="anonymous"></script>
   <link rel="shortcut icon" href="./images/logo_favicon.png" type="image/x-icon">
   <title>ThRees</title>
 </head>
@@ -52,21 +53,23 @@
   </nav>
 
   <div class="hero-banner">
-    <h1>POSTCODE</h1>
-    <h2>CHECKER</h2>
+    <div id="postcode-searcher">
+      <h2 id="postcode-title">Check Your Area</h2>
+      <form id="postcode-form" method="get" class="flex-container-column">
+        <div class="search-holder">
+          <input type="text" id="postcode-search" name="postcode" required>
+          <label for="postcode-search">Postcode</label>
+          <button type="submit" class="search-btn">
+            <i class="fa-solid fa-location-dot"></i>
+          </button>
+        </div>
+      </form>
+      
+    </div>
   </div>
   <div id="tabs">
-    <div id="postcode-searcher">
-      <h2 id="postcode-title">Check your area!</h2>
-      <form id="postcode-form" method="get" class="flex-container-column">
-        <label for="postcode-search">Enter your postcode:</label>
-        <input type="text" id="postcode-search" name="postcode" required>
-        <input type="submit"></input>
-      </form>
-      <ul id="waste-data">
-      </ul>
-    </div>
-
+    <ul id="waste-data">
+    </ul>
     <div class="flex-container" id="postcode-creater">
       <h2>Add your postcode!</h2>
       <form id="add-recycling-form" class="add-form">
