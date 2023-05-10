@@ -13,14 +13,3 @@ userStatus.addEventListener("click", () => {
         localStorage.removeItem("token");
     }
 })
-
-
-
-
-
-
-
-
-
-
-

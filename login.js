@@ -25,5 +25,3 @@ loginForm.addEventListener('submit', async (event) => {
         console.error(error);
     }
 });
-
-
