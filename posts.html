@@ -12,8 +12,8 @@
         integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe"
         crossorigin="anonymous"></script>
     <link rel="stylesheet" href="./assets/css/style.css">
-    <script defer src="./assets/js/index.js"></script>
-    <title>Welcome to ThRees!</title>
+    <script defer src="./assets/js/posts.js"></script>
+    <title>Posts</title>
 </head>
 
 <body>
@@ -30,39 +30,49 @@
             </button>
             <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
                 <div class="navbar-nav ms-auto">
-                    <a class="nav-link active" aria-current="page" href="./index.html">Home</a>
+                    <a class="nav-link" href="./index.html">Home</a>
                     <a class="nav-link" href="#">Waste</a>
-                    <a class="nav-link" href="./posts.html">Create a Post</a>
+                    <a class="nav-link active" aria-current="page" href="./posts.html">Create a Post</a>
                     <a class="nav-link" href="#">Log In</a>
                 </div>
             </div>
         </div>
     </nav>
+
     <div class="hero-banner">
-        <h1>Welcome to ThRees!</h1>
+        <h1>Create Post</h1>
     </div>
-    <div class="categories">
-        <div class="category category-all">
-            <h6>All</h6>
-        </div>
-        <div class="category category-environment">
-            <h6>Environment</h6>
-        </div>
-        <div class="category category-gardening">
-            <h6>Gardening</h6>
-        </div>
-        <div class="category category-wood">
-            <h6>Wood</h6>
-        </div>
-        <div class="category category-paper">
-            <h6>Paper</h6>
-        </div>
-        <div class="category category-plastic">
-            <h6>Plastic</h6>
-        </div>
+    <div class="post-form-container">
+        <form id="post-form" enctype="multipart/form-data" required>
+            <div class="form-box">
+                <label for="title" class="form-label">Title:</label>
+                <input type="text" class="form-control" id="title" name="title" aria-describedby="emailHelp" required>
+            </div>
+            <div class="form-box">
+                <label for="category" class="form-label">Category:</label>
+                <select class="form-select" id="category" required>
+                    <option value="" selected>Choose a category</option>
+                    <option value="Environment">Environment</option>
+                    <option value="Gardening">Gardening</option>
+                    <option value="Wood">Wood</option>
+                    <option value="Paper">Paper</option>
+                    <option value="Plastic">Plastic</option>
+                </select>
+            </div>
+            <div class="form-box">
+                <label for="content">Content:</label>
+                <textarea class="form-control" id="content" name="content" rows="10" required></textarea>
+            </div>
+            <div class="form-box">
+                <label for="file" class="form-label">Image:</label>
+                <input class="form-control" type="file" name="image" id="file" required>
+            </div>
+            <button type="submit" id="submitBtn" class="btn btn-dark">Submit</button>
+        </form>
     </div>
-    <div class="category-title"></div>
+    <!-- <button id="viewBtn">View Posts</button> -->
     <div id="postDataContainer"></div>
+
 </body>
 
 </html>

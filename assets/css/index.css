@@ -1,0 +1,53 @@
+.categories {
+    display: flex;
+    justify-content: center;
+    padding: 30px;
+}
+
+.category-title {
+    color: black;
+    text-align: center;
+}
+
+.category {
+    color: black;
+    background-repeat: no-repeat;
+    background-size: cover;
+    text-align: center;
+    width: 10%;
+    height: 10%;
+    padding: 35px;
+    margin-right: 10px;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+.category h6 {
+    background-color: #BACDB0;
+    font-weight: bold;
+    border-radius: 10px;
+}
+
+.category-all {
+    background-image: url("../images/categories/all.png");
+}
+
+.category-environment {
+    background-image: url("../images/categories/environment.jpg");
+}
+
+.category-gardening {
+    background-image: url("../images/categories/gardening.jpg");
+}
+
+.category-paper {
+    background-image: url("../images/categories/paper.jpg");
+}
+
+.category-plastic {
+    background-image: url("../images/categories/plastic.jpg");
+}
+
+.category-wood {
+    background-image: url("../images/categories/wood.jpg");
+}
