@@ -21,6 +21,9 @@ const postForm = async (post_title, post_content, post_category, post_image) => 
 
     const response = await fetch("http://localhost:3000/posts", {
         method: "POST",
+        headers: {
+            "Authorization": localStorage.getItem("token")
+        },
         body: formData
     });
 

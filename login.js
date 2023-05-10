@@ -16,16 +16,13 @@ loginForm.addEventListener('submit', async (event) => {
     });
 
     const data = await response.json();
-    // console.log(data);
 
     if (response.ok) {
         localStorage.setItem("token", data.token);
         window.location.assign("index.html");
-        // Do something with the created user
     } else {
         const error = await response.text();
         console.error(error);
-        // Handle the error
     }
 });
 
