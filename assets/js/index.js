@@ -30,10 +30,14 @@ const viewPosts = async () => {
 
         let id = post.id;
         const postDataElement = document.createElement("div");
+        const heading = document.createElement("div");
+        const main = document.createElement("div");
+        const title_date = document.createElement("div");
 
         const titleElement = document.createElement("h2");
         const dateElement = document.createElement("p");
         const timeElement = document.createElement("p");
+
         const categoryElement = document.createElement("p");
         const imageElement = document.createElement("img");
         const contentElement = document.createElement("p");
@@ -41,19 +45,35 @@ const viewPosts = async () => {
         console.log(post);
 
         postDataElement.classList.add("postDataContainer");
+        heading.classList.add("post-header");
+        title_date.classList.add("post-header");
+        main.classList.add("post-main");
+
         postDataElement.id = id;
         categoryNameElement.classList.add("category-title")
         titleElement.classList.add("title");
         contentElement.classList.add("content");
         categoryElement.classList.add("category-name");
-        dateElement.classList.add("category-name");
-        timeElement.classList.add("category-name");
+        dateElement.classList.add("date-time");
+        timeElement.classList.add("date-time");
         imageElement.classList.add("image");
+
+        const date = new Date(post.date);
+        const year = date.getFullYear();
+        const month = date.getMonth() + 1;
+        const day = date.getDate();
+        const dateString = `${day.toString().padStart(2, '0')}-${month.toString().padStart(2, '0')}-${year}`;
+
+        const time = post.time;
+        const [hour, minute, second] = time.split(':');
+        const updatedHour = Number(hour) + 1;
+        const onlySeconds = second.slice(0, 2);
+        const timeString = `${updatedHour}:${minute}:${onlySeconds}`;
 
         categoryNameElement.textContent = "All";
         titleElement.textContent = post.title;
-        dateElement.textContent = post.date;
-        timeElement.textContent = post.time;
+        dateElement.textContent = `Date: ${dateString}`;
+        timeElement.textContent = `Time: ${timeString}`;
         contentElement.textContent = post.content;
         categoryElement.textContent = post.category;
 
@@ -66,13 +86,19 @@ const viewPosts = async () => {
         const imageUrl = `data:image;base64,${base64}`;
         imageElement.src = imageUrl;
 
+        postDataElement.appendChild(heading);
 
-        postDataElement.appendChild(titleElement);
-        postDataElement.appendChild(dateElement);
-        postDataElement.appendChild(timeElement);
-        postDataElement.appendChild(categoryElement);
-        postDataElement.appendChild(imageElement);
-        postDataElement.appendChild(contentElement);
+        heading.appendChild(title_date);
+        title_date.appendChild(titleElement);
+        title_date.appendChild(dateElement);
+        title_date.appendChild(timeElement);
+
+        heading.appendChild(categoryElement);
+
+        postDataElement.appendChild(main);
+        main.appendChild(imageElement);
+        main.appendChild(contentElement);
+
         container.appendChild(postDataElement);
 
     })
@@ -121,12 +147,17 @@ const viewByCategory = async (category) => {
     category_title.appendChild(categoryNameElement);
 
     data.forEach(post => {
+
         let id = post.id;
         const postDataElement = document.createElement("div");
+        const heading = document.createElement("div");
+        const main = document.createElement("div");
+        const title_date = document.createElement("div");
 
         const titleElement = document.createElement("h2");
         const dateElement = document.createElement("p");
         const timeElement = document.createElement("p");
+
         const categoryElement = document.createElement("p");
         const imageElement = document.createElement("img");
         const contentElement = document.createElement("p");
@@ -134,19 +165,35 @@ const viewByCategory = async (category) => {
         console.log(post);
 
         postDataElement.classList.add("postDataContainer");
+        heading.classList.add("post-header");
+        title_date.classList.add("post-header");
+        main.classList.add("post-main");
+
         postDataElement.id = id;
         categoryNameElement.classList.add("category-title")
         titleElement.classList.add("title");
         contentElement.classList.add("content");
         categoryElement.classList.add("category-name");
-        dateElement.classList.add("category-name");
-        timeElement.classList.add("category-name");
+        dateElement.classList.add("date-time");
+        timeElement.classList.add("date-time");
         imageElement.classList.add("image");
+
+        const date = new Date(post.date);
+        const year = date.getFullYear();
+        const month = date.getMonth() + 1;
+        const day = date.getDate();
+        const dateString = `${day.toString().padStart(2, '0')}-${month.toString().padStart(2, '0')}-${year}`;
+
+        const time = post.time;
+        const [hour, minute, second] = time.split(':');
+        const updatedHour = Number(hour) + 1;
+        const onlySeconds = second.slice(0, 2);
+        const timeString = `${updatedHour}:${minute}:${onlySeconds}`;
 
         categoryNameElement.textContent = category;
         titleElement.textContent = post.title;
-        dateElement.textContent = post.date;
-        timeElement.textContent = post.time;
+        dateElement.textContent = `Date: ${dateString}`;
+        timeElement.textContent = `Time: ${timeString}`;
         contentElement.textContent = post.content;
         categoryElement.textContent = post.category;
 
@@ -159,13 +206,19 @@ const viewByCategory = async (category) => {
         const imageUrl = `data:image;base64,${base64}`;
         imageElement.src = imageUrl;
 
+        postDataElement.appendChild(heading);
 
-        postDataElement.appendChild(titleElement);
-        postDataElement.appendChild(dateElement);
-        postDataElement.appendChild(timeElement);
-        postDataElement.appendChild(categoryElement);
-        postDataElement.appendChild(imageElement);
-        postDataElement.appendChild(contentElement);
+        heading.appendChild(title_date);
+        title_date.appendChild(titleElement);
+        title_date.appendChild(dateElement);
+        title_date.appendChild(timeElement);
+
+        heading.appendChild(categoryElement);
+
+        postDataElement.appendChild(main);
+        main.appendChild(imageElement);
+        main.appendChild(contentElement);
+
         container.appendChild(postDataElement);
     })
 }

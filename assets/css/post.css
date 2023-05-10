@@ -66,36 +66,61 @@ form label {
 
 .dropdown-item:hover {
     cursor: pointer;
-  }
-  
+}
+
 
 
 /* Post container */
 
 .postDataContainer {
-    margin: 10px 20%;
+    position: relative;
+    margin: 10px 27%;
     margin-bottom: 10px;
     padding: 10px;
     border: 1px solid #ccc;
-    background-color: #c2b2b2;
+    border-radius: 10px;
+    background-color: #BACDB0;
+}
+
+.post-header {
+    margin-left: 10px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.post-main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 .title {
     font-weight: bold;
     font-size: 20px;
     margin-bottom: 5px;
+    text-decoration: underline;
+}
+
+.date-time {
+    font-size: 15px;
+    margin-left: 20px;
+    color: #585656;
 }
 
 .category-name {
     font-size: 20px;
     color: #585656;
     margin-bottom: 5px;
+    align-items: end;
 }
 
 .image {
+    border: 2px solid black;
+    align-self: center;
     max-width: 50%;
     height: auto;
     margin-bottom: 5px;
+    border-radius: 10px;
 }
 
 .content {
