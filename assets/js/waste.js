@@ -91,7 +91,6 @@ addSubmitForm.addEventListener('submit', async (e) => {
                 addGeneralForm.reset();
                 addCompostForm.reset();
                 clearAddForm();
-                document.getElementById("postcode-search").value = filteredData.waste_postcode
             } else {
                 alert("Error:", err.message);
             }
@@ -135,7 +134,6 @@ updateForm.addEventListener('submit', async (e) => {
         if (response.ok) {
             console.log("Success:", response);
             updateForm.reset();
-            document.getElementById("postcode-search").value = postcode
         } else {
             console.error("Error:", response.status);
         }

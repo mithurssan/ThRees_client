@@ -20,7 +20,7 @@
 
 <body>
   <nav class="navbar navbar-expand-lg bg-body-tertiary">
-    <div class="container-fluid" style="background-color: #BACDB0;">
+    <div class="container-fluid" id="navbar-background">
       <a class="navbar-brand" href="index.html"><img src="./images/ThRees_Logo.png" alt="Logo"
           class="d-inline-block align-text-top logo-img" />
       </a>
@@ -44,32 +44,30 @@
             <a class="nav-link">Log In</a>
           </li>
         </ul>
-        <!-- <form class="d-flex" role="search">
-              <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-              <button class="btn btn-outline-success" type="submit">Search</button>
-            </form>
-          </div> -->
       </div>
   </nav>
 
   <div class="hero-banner">
-    <div id="postcode-searcher">
-      <h2 id="postcode-title">Check Your Area</h2>
-      <form id="postcode-form" method="get" class="flex-container-column">
-        <div class="search-holder">
-          <input type="text" id="postcode-search" name="postcode" required>
-          <label for="postcode-search">Postcode</label>
-          <button type="submit" class="search-btn">
-            <i class="fa-solid fa-location-dot"></i>
-          </button>
-        </div>
-      </form>
-      
-    </div>
+    <h1 style="text-align: center;">Cleaner Communities<br>For<br>Greener Futures</h1>
+    <h2 id="banner-text">Check Your Area</h2>
+    <form id="postcode-form" method="get" class="flex-container-column">
+      <div class="search-holder">
+        <input type="text" id="postcode-search" name="postcode" required>
+        <label for="postcode-search">Postcode</label>
+        <button type="submit" class="search-btn">
+          <i class="fa-solid fa-location-dot"></i>
+        </button>
+      </div>
+    </form>
   </div>
+
   <div id="tabs">
-    <ul id="waste-data">
-    </ul>
+    <div class="result-container">
+      <img src="./images/location-marker.png" alt="" id="location-marker-img">
+      <h2 id="postcode-title"></h2>
+      <ul id="waste-data">
+      </ul>
+    </div>
     <div class="flex-container" id="postcode-creater">
       <h2>Add your postcode!</h2>
       <form id="add-recycling-form" class="add-form">
@@ -84,8 +82,6 @@
       </form>
       <form id="add-general-form" class="add-form">
         <h4>General</h4>
-        <!-- <label for="postcode">Enter Postcode: </label>
-          <input type="text" name="postcode" id="postcode"> -->
         <label for="days">Enter days: </label>
         <input type="number" name="days" id="days" min="0">
         <label for="date">Pick Date: </label>
@@ -95,8 +91,6 @@
       </form>
       <form id="add-compost-form" class="add-form">
         <h4>compost</h4>
-        <!-- <label for="postcode">Enter Postcode: </label>
-          <input type="text" name="postcode" id="postcode"> -->
         <label for="days">Enter days: </label>
         <input type="number" name="days" id="days" min="0">
         <label for="date">Pick Date: </label>
@@ -104,18 +98,18 @@
         <input type="submit" value="next">
         <input type="button" class="add-back-btn" value="back">
       </form>
+
       <div>
         <h3 id="add-new-postcode">
-
         </h3>
         <ul id="listAdd">
-
         </ul>
         <form method="POST" id="add-submit-new">
           <input type="submit">
           <input type="button" id="add-restart-button" value="Edit">
         </form>
       </div>
+
     </div>
 
     <div id="postcode-updater">
@@ -123,20 +117,20 @@
       <form action="patch" id="patch-form" class="flex-container-column">
         <label for="postcode-patch">Enter your postcode:</label>
         <input type="text" id="postcode-patch" name="postcode" required>
-    
+
         <label for="waste-type">Select waste type:</label>
         <select id="waste-type" name="wasteType">
           <option value="recycling">Recycling</option>
           <option value="general">General</option>
           <option value="compost">Compost</option>
         </select>
-    
+
         <label for="waste-days">Waste days:</label>
         <input type="number" id="update-days" name="wasteDays" min="0" required>
-    
+
         <label for="waste-date">Waste date:</label>
         <input type="date" id="update-date" name="wasteDate" required>
-    
+
         <input type="submit">
       </form>
     </div>
