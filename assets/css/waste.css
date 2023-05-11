@@ -201,4 +201,14 @@ input[type='text'] {
   background-color: #729B79;
   background-position: 0 0, 50px 50px;
   background-size: 100px 100px;
+  padding: 2rem 20rem;
+}
+
+#postcode-updater{
+    background-image: radial-gradient(#475b632c 20%, transparent 20%),
+      radial-gradient(#475b632c 20%, transparent 20%);
+  background-color: #729B79;
+  background-position: 0 0, 50px 50px;
+  background-size: 100px 100px;
+  padding: 2rem 20rem;
 }
