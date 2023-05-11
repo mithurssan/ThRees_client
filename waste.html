@@ -14,7 +14,6 @@
   <script defer src="./assets/js/waste.js"></script>
   <script defer src="./assets/js/wasteFunctions.js"></script>
   <script defer src="https://kit.fontawesome.com/abdde26339.js" crossorigin="anonymous"></script>
-  <script defer src="./isLoggedin.js"></script>
   <link rel="shortcut icon" href="./images/logo_favicon.png" type="image/x-icon">
   <title>ThRees</title>
 </head>
@@ -25,7 +24,7 @@
       <a class="navbar-brand" href="index.html"><img src="./images/ThRees_Logo.png" alt="Logo"
           class="d-inline-block align-text-top logo-img" />
       </a>
-      <a class="nav-link" id="nav-title" href="index.html">ThRees</a>
+      <a class="nav-link" id="nav-title" aria-current="page" href="index.html">ThRees</a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo02"
         aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
@@ -33,16 +32,16 @@
       <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
         <ul class="navbar-nav ms-auto">
           <li class="nav-item">
-            <a class="nav-link" href="index.html">Home</a>
+            <a class="nav-link" aria-current="page" href="index.html">Home</a>
           </li>
           <li class="nav-item">
             <a class="nav-link active" aria-current="page" href="waste.html">Waste</a>
           </li>
-          <li class="nav-item" id="createPost">
-            <a class="nav-link" href="./posts.html">Create Post</a>
+          <li class="nav-item">
+            <a class="nav-link">Create Post</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" id="status" href="./login.html">Log In</a>
+            <a class="nav-link">Log In</a>
           </li>
         </ul>
       </div>
@@ -61,7 +60,6 @@
       </div>
     </form>
   </div>
-
   <div id="tabs">
     <div class="result-container">
       <img src="./images/location-marker.png" alt="" id="location-marker-img">
@@ -70,53 +68,69 @@
       </ul>
       <img src="./images/house.png" id="house-img">
     </div>
-    <div class="flex-container" id="postcode-creater">
-      <h2>Add your postcode!</h2>
-      <form id="add-recycling-form" class="add-form">
-        <h4>Recycling</h4>
-        <label for="postcode">Enter Postcode: </label>
-        <input type="text" name="postcode" id="postcode">
-        <label for="days">Enter days: </label>
-        <input type="number" name="days" id="days" min="0">
-        <label for="date">Pick Date: </label>
-        <input type="date" name="date" id="date">
-        <input type="submit" value="next">
-      </form>
-      <form id="add-general-form" class="add-form">
-        <h4>General</h4>
-        <label for="days">Enter days: </label>
-        <input type="number" name="days" id="days" min="0">
-        <label for="date">Pick Date: </label>
-        <input type="date" name="date" id="date">
-        <input type="submit" value="next">
-        <input type="button" class="add-back-btn" value="back">
-      </form>
-      <form id="add-compost-form" class="add-form">
-        <h4>compost</h4>
-        <label for="days">Enter days: </label>
-        <input type="number" name="days" id="days" min="0">
-        <label for="date">Pick Date: </label>
-        <input type="date" name="date" id="date">
-        <input type="submit" value="next">
-        <input type="button" class="add-back-btn" value="back">
-      </form>
+    
+    <input type="button" id="toggler" value="">
 
-      <div>
-        <h3 id="add-new-postcode">
-        </h3>
-        <ul id="listAdd">
-        </ul>
-        <form method="POST" id="add-submit-new">
-          <input type="submit">
-          <input type="button" id="add-restart-button" value="Edit">
-        </form>
+    <div class="flex-container addOrUpdate" id="postcode-creater">
+      <div class="holder">
+
+        <div>
+          <h2 id="add-postcode-h2">Add your postcode!</h2>
+          <form id="add-recycling-form" class="add-form">
+            <h4>Recycling</h4>
+            <label for="postcode">Enter Postcode: </label>
+            <input type="text" name="postcode" id="postcode">
+            <label for="days">Enter days: </label>
+            <input type="number" name="days" id="days" min="0">
+            <label for="date">Pick Date: </label>
+            <input type="date" name="date" id="date">
+            <input type="submit" value="next" class="nextBack">
+          </form>
+        </div>
+        <div>
+          <form id="add-general-form" class="add-form">
+            <h4>General</h4>
+            <label for="days">Enter days: </label>
+            <input type="number" name="days" id="days" min="0">
+            <label for="date">Pick Date: </label>
+            <input type="date" name="date" id="date">
+            <input type="button" class="add-back-btn" value="back">
+            <input type="submit" value="next" class="nextBack">
+          </form>
+  
+        </div>
+  
+        <div>
+  
+          <form id="add-compost-form" class="add-form">
+            <h4>compost</h4>
+            <label for="days">Enter days: </label>
+            <input type="number" name="days" id="days" min="0">
+            <label for="date">Pick Date: </label>
+            <input type="date" name="date" id="date">
+            <input type="button" class="add-back-btn" value="back">
+            <input type="submit" value="next" class="nextBack">
+          </form>
+        </div>
+  
+        <div>
+          <h3 id="add-new-postcode">
+          </h3>
+          <ul id="listAdd">
+          </ul>
+          <form method="POST" id="add-submit-new">
+            <input type="submit">
+            <input type="button" id="add-restart-button" value="Edit">
+          </form>
+        </div>
+
       </div>
 
     </div>
 
-<div id="postcode-updater">
-      <h2>Update your area!</h2>
+    <div id="postcode-updater" >
       <form action="patch" id="patch-form" class="flex-container-column">
+        <h2>Update your area!</h2>
         <label for="postcode-patch">Enter your postcode:</label>
         <input type="text" id="postcode-patch" name="postcode" required>
 
@@ -138,7 +152,7 @@
     </div>
 
   </div>
-  <footer class="footer-distributed">
+  <footer>
 
   </footer>
 </body>
