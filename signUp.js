@@ -17,7 +17,10 @@ signupForm.addEventListener('submit', async (event) => {
   if (response.ok) {
     const user = await response.json();
     console.log(user);
-    window.location.assign("login.html")
+    setTimeout(() => {
+      window.location.assign("login.html")
+    }, 500);
+    showSignupAlert("Signing Up...", "Success");
     // Do something with the created user
   } else {
     const error = await response.text();
@@ -26,4 +29,17 @@ signupForm.addEventListener('submit', async (event) => {
   }
 });
 
+
+const showSignupAlert = (message, type) => {
+  const alertElement = document.createElement("div");
+  alertElement.classList.add("alert", `alert-${type}`);
+  alertElement.setAttribute("role", "alert");
+  alertElement.textContent = message;
+
+  signupForm.appendChild(alertElement);
+
+  setTimeout(() => {
+    alertElement.remove();
+  }, 1500);
+}
 

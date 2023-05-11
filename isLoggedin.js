@@ -2,14 +2,46 @@ const isLoggedIn = localStorage.getItem("token");
 const createPostLink = document.getElementById("createPost");
 const userStatus = document.getElementById("status");
 
+console.log(isLoggedIn);
 if (isLoggedIn) {
     userStatus.textContent = "Log out";
 } else {
     createPostLink.style.display = "none";
 }
 
-userStatus.addEventListener("click", () => {
+userStatus.addEventListener("click", async (event) => {
+    event.preventDefault();
+
     if (userStatus.textContent === "Log out") {
-        localStorage.removeItem("token");
+        const response = await fetch(`http://localhost:3000/users/token/${isLoggedIn}`, {
+            method: 'DELETE'
+        });
+        if (response.ok) {
+            localStorage.removeItem("token");
+            userStatus.textContent === "Log In";
+            setTimeout(() => {
+                window.location.assign("index.html");
+            }, 500);
+            showLogoutAlert("Logging Out...", "danger");
+        }
+    } else {
+        userStatus.textContent === "Log In";
+        window.location.assign("login.html");
     }
-})
+});
+
+const navbar = document.querySelector(".navbar");
+
+const showLogoutAlert = (message, type) => {
+    const alertElement = document.createElement("div");
+    alertElement.classList.add("alert", `alert-${type}`);
+    alertElement.setAttribute("role", "alert");
+    alertElement.textContent = message;
+
+    navbar.appendChild(alertElement);
+
+    setTimeout(() => {
+        alertElement.remove();
+    }, 1500);
+}
+

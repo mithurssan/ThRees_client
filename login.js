@@ -19,9 +19,26 @@ loginForm.addEventListener('submit', async (event) => {
 
     if (response.ok) {
         localStorage.setItem("token", data.token);
-        window.location.assign("index.html");
+        setTimeout(() => {
+            window.location.assign("index.html");
+        }, 500);
+        showLoginAlert("Logging In...", "Success");
     } else {
         const error = await response.text();
         console.error(error);
     }
 });
+
+
+const showLoginAlert = (message, type) => {
+    const alertElement = document.createElement("div");
+    alertElement.classList.add("alert", `alert-${type}`);
+    alertElement.setAttribute("role", "alert");
+    alertElement.textContent = message;
+
+    loginForm.appendChild(alertElement);
+
+    setTimeout(() => {
+        alertElement.remove();
+    }, 1500);
+}
