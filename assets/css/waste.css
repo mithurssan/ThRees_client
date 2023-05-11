@@ -3,52 +3,212 @@
 .hero-banner {
     background-color: #BACDB0;
     display: flex;
-    justify-content: center;
+    justify-content:space-around;
     align-items: center;
     background-image: url(../../images/hero-banner.jpg);
     background-repeat: no-repeat;
     background-position: center;
-    width: 100vw;
-    height: 18rem;
+    height: 355px;
     flex-direction: column;
 }
+#banner-text{
+    font-weight: 500;
+    font-style: italic;
+}
 
-.flex-container-column{
+
+#postcode-title{
+    margin: 1rem 0 0 ;
+    font-weight: 500;
+    font-style: italic;
+}
+
+body{
+    background-color: #fff1ea;
+}
+
+h2, h4{
+    font-family: 'Josefin Sans', sans-serif;
+}
+
+h1{
+    font-family: 'Vollkorn', serif;
+    font-weight: 900;
+}
+
+ul{
+    margin-top: 2rem;
+    list-style-type: none;
+}
+
+/* #navbar-background{
+    background-image: url(../../images/test-heroBanner.jpg);
+    background-repeat: no-repeat;
+    background-position: top;
+    
+} */
+
+
+.flex-container-column {
     display: flex;
     flex-direction: column;
 }
 
-#tabs{
+#tabs {
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     justify-content: space-around;
 }
 
-.flex-container{
+.flex-container {
     display: flex;
     flex-direction: column;
-    align-items: center;
 }
 
-input{
+input {
     margin: 1rem 0;
 }
 
-#add-general-form{
+#add-general-form {
     display: none;
 }
 
-#add-compost-form{
+#add-compost-form {
     display: none;
 }
 
-#add-recycling-form{
+#add-recycling-form {
     display: flex;
 }
 
-.add-form{
+.add-form {
     display: flex;
     flex-direction: column;
-    width: 15rem;
+}
+
+#add-submit-new {
+    display: none;
+    justify-content: space-between;
     align-items: center;
+}
+
+#add-submit-new input[type="submit"],
+#add-submit-new input[type="button"] {
+    flex-grow: 1;
+    width: 50%;
+    margin: 0 5px;
+}
+
+input[type='text'] {
+    width: fit-content;
+    height: fit-content;
+    position: relative;
+}
+
+#postcode-form {
+    text-align: center;
+}
+#postcode-form >h2 {
+    margin: 0;
+}
+
+
+#postcode-search {
+  flex-grow: 1;
+  border: 3px solid #ccc;
+  border-radius: 20px;
+  padding: 8px 12px;
+  width: 400px;
+  height: 60%;
+  font-family: inherit;
+  font-weight: inherit;
+  color: inherit;
+  outline: none;
+}
+
+#postcode-search:hover {
+    border-color: #F3E8EE;
+}
+
+#postcode-search:focus {
+    border-color: #96be9d;
+}
+
+#postcode-search:focus + label {
+    left: 18.5rem;
+    top: 1.65rem;
+    font-size: 0.8rem;
+  }
+  
+
+.search-btn {
+    background-color: #ffffff00;
+    border: none;
+    border-radius: 20px;
+    color: #475B63;
+    cursor: pointer;
+    padding: 8px 8px;
+    margin-left: 6px;
+    position: absolute;
+    right: 0.5rem;
+    top: 1rem;
+    transition: top 200ms ease;
+}
+
+.search-btn::before {
+    font-weight: 900;
+    margin-right: 6px;
+}
+
+.search-holder {
+    position: relative;
+    width: 100%;
+}
+
+.search-holder > label {
+    position: absolute;
+    z-index: 1;
+    left: 1rem;
+    top: 1.5rem;
+    color: #475b635e;
+    padding: 0 0.5rem;
+    background-color: rgba(255, 255, 255, 0);
+    transition: 
+    top 200ms ease-in,
+    left 200ms ease-in,
+    font-size 200ms ease-in;
+}
+
+.result-container{
+    height: 450px;
+    text-align: center;
+    margin: 2rem 10rem;
+
+
+}
+
+#location-marker-img{
+    width: 8rem;
+}
+
+#house-img{
+    width: 4rem;
+}
+
+#postcode-creater{
+    background-image: radial-gradient(#475b632c 20%, transparent 20%),
+      radial-gradient(#475b632c 20%, transparent 20%);
+  background-color: #729B79;
+  background-position: 0 0, 50px 50px;
+  background-size: 100px 100px;
+  padding: 2rem 20rem;
+}
+
+#postcode-updater{
+    background-image: radial-gradient(#475b632c 20%, transparent 20%),
+      radial-gradient(#475b632c 20%, transparent 20%);
+  background-color: #729B79;
+  background-position: 0 0, 50px 50px;
+  background-size: 100px 100px;
+  padding: 2rem 20rem;
 }

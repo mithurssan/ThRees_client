@@ -1,7 +1,6 @@
 const addRecyclingForm = document.getElementById('add-recycling-form')
 const addGeneralForm = document.getElementById('add-general-form')
 const addCompostForm = document.getElementById('add-compost-form')
-// const addSubmitForm = document.getElementById('add-submit-new')
 
 const addNewPostcode = document.getElementById('add-new-postcode')
 const backButton = document.querySelectorAll('.add-back-btn')

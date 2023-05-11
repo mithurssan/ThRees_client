@@ -13,6 +13,7 @@
     crossorigin="anonymous"></script>
   <script defer src="./assets/js/waste.js"></script>
   <script defer src="./assets/js/wasteFunctions.js"></script>
+  <script defer src="https://kit.fontawesome.com/abdde26339.js" crossorigin="anonymous"></script>
   <script defer src="./isLoggedin.js"></script>
   <link rel="shortcut icon" href="./images/logo_favicon.png" type="image/x-icon">
   <title>ThRees</title>
@@ -20,7 +21,7 @@
 
 <body>
   <nav class="navbar navbar-expand-lg bg-body-tertiary">
-    <div class="container-fluid" style="background-color: #BACDB0;">
+    <div class="container-fluid" id="navbar-background">
       <a class="navbar-brand" href="index.html"><img src="./images/ThRees_Logo.png" alt="Logo"
           class="d-inline-block align-text-top logo-img" />
       </a>
@@ -44,30 +45,31 @@
             <a class="nav-link" id="status" href="./login.html">Log In</a>
           </li>
         </ul>
-        <!-- <form class="d-flex" role="search">
-              <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-              <button class="btn btn-outline-success" type="submit">Search</button>
-            </form>
-          </div> -->
       </div>
   </nav>
 
   <div class="hero-banner">
-    <h1>POSTCODE</h1>
-    <h2>CHECKER</h2>
-  </div>
-  <div id="tabs">
-    <div id="postcode-seacher">
-      <h2 id="postcode-title">Check your area!</h2>
-      <form id="postcode-form" method="get" class="flex-container-column">
-        <label for="postcode-search">Enter your postcode:</label>
+    <h1 style="text-align: center;">Cleaner Communities<br>For<br>Greener Futures</h1>
+    <h2 id="banner-text">Check Your Area</h2>
+    <form id="postcode-form" method="get" class="flex-container-column">
+      <div class="search-holder">
         <input type="text" id="postcode-search" name="postcode" required>
-        <input type="submit"></input>
-      </form>
+        <label for="postcode-search">Postcode</label>
+        <button type="submit" class="search-btn">
+          <i class="fa-solid fa-location-dot"></i>
+        </button>
+      </div>
+    </form>
+  </div>
+
+  <div id="tabs">
+    <div class="result-container">
+      <img src="./images/location-marker.png" alt="" id="location-marker-img">
+      <h2 id="postcode-title"></h2>
       <ul id="waste-data">
       </ul>
+      <img src="./images/house.png" id="house-img">
     </div>
-
     <div class="flex-container" id="postcode-creater">
       <h2>Add your postcode!</h2>
       <form id="add-recycling-form" class="add-form">
@@ -82,41 +84,37 @@
       </form>
       <form id="add-general-form" class="add-form">
         <h4>General</h4>
-        <!-- <label for="postcode">Enter Postcode: </label>
-          <input type="text" name="postcode" id="postcode"> -->
         <label for="days">Enter days: </label>
         <input type="number" name="days" id="days" min="0">
         <label for="date">Pick Date: </label>
         <input type="date" name="date" id="date">
         <input type="submit" value="next">
-        <button type="button" class="add-back-btn">Back</button>
+        <input type="button" class="add-back-btn" value="back">
       </form>
       <form id="add-compost-form" class="add-form">
         <h4>compost</h4>
-        <!-- <label for="postcode">Enter Postcode: </label>
-          <input type="text" name="postcode" id="postcode"> -->
         <label for="days">Enter days: </label>
         <input type="number" name="days" id="days" min="0">
         <label for="date">Pick Date: </label>
         <input type="date" name="date" id="date">
         <input type="submit" value="next">
-        <button type="button" class="add-back-btn">Back</button>
+        <input type="button" class="add-back-btn" value="back">
       </form>
+
       <div>
         <h3 id="add-new-postcode">
-
         </h3>
         <ul id="listAdd">
-
         </ul>
         <form method="POST" id="add-submit-new">
           <input type="submit">
-          <button type="button" id="add-restart-button">Edit</button>
+          <input type="button" id="add-restart-button" value="Edit">
         </form>
       </div>
+
     </div>
 
-    <div id="postcode-updater">
+<div id="postcode-updater">
       <h2>Update your area!</h2>
       <form action="patch" id="patch-form" class="flex-container-column">
         <label for="postcode-patch">Enter your postcode:</label>
@@ -130,16 +128,19 @@
         </select>
 
         <label for="waste-days">Waste days:</label>
-        <input type="number" id="update-days" name="wasteDays" min="0">
+        <input type="number" id="update-days" name="wasteDays" min="0" required>
 
         <label for="waste-date">Waste date:</label>
-        <input type="date" id="update-date" name="wasteDate">
+        <input type="date" id="update-date" name="wasteDate" required>
 
         <input type="submit">
       </form>
     </div>
 
   </div>
+  <footer class="footer-distributed">
+
+  </footer>
 </body>
 
 </html>

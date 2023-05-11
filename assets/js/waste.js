@@ -14,12 +14,13 @@ postcodeForm.addEventListener('submit', (event) => {
     event.preventDefault();
     postcodeTitle.innerHTML = ""
     let postcode = document.getElementById('postcode-search').value;
-    postcodeTitle.innerHTML = postcode.toUpperCase();
     const url = `http://localhost:3000/waste/${postcode}`;
     fetch(url)
-        .then(response => response.json())
-        .then((data) => {
-            console.log(data);
+    .then(response => response.json())
+    .then((data) => {
+        console.log(data);
+        document.getElementById('house-img').style.display = 'none'
+        postcodeTitle.innerHTML = postcode.toUpperCase();
             showList.innerHTML = '';
             for (const key in data) {
 
@@ -90,8 +91,7 @@ addSubmitForm.addEventListener('submit', async (e) => {
                 addRecyclingForm.reset();
                 addGeneralForm.reset();
                 addCompostForm.reset();
-                clearAddForm()
-
+                clearAddForm();
             } else {
                 alert("Error:", err.message);
             }
@@ -107,46 +107,42 @@ addSubmitForm.addEventListener('submit', async (e) => {
 });
 
 
-// updateForm.addEventListener('submit', async (e) => {
-//     e.preventDefault();
+updateForm.addEventListener('submit', async (e) => {
+    e.preventDefault();
 
-//     const postcode = e.target.postcode.value;
+    // const postcode = e.target.postcode.value;
 
-//     const data = {
-//         recycling_days: e.target.recyclingDays.value,
-//         recycling_last_collection: e.target.recyclingDate.value,
-//         general_days: e.target.generalDays.value,
-//         general_last_collection: e.target.generalDate.value,
-//         compost_days: e.target.compostDays.value,
-//         compost_last_collection: e.target.compostDate.value
-//     };
+    const postcode = document.getElementById("postcode-patch").value;
+    const wasteType = document.getElementById("waste-type").value;
+    const wasteDays = document.getElementById("update-days").value;
+    const wasteDate = document.getElementById("update-date").value;
 
-//     const filteredData = Object.fromEntries(
-//         Object.entries(data)
-//             .filter(([key, value]) => value !== "" && value !== null && value !== undefined)
-//     );
+    const data = {
+        [`${wasteType}_days`]: wasteDays,
+        [`${wasteType}_last_collection`]: wasteDate,
+        waste_postcode: postcode
+    }
 
-//     fetch(`http://localhost:3000/waste/${postcode}`, {
-//         method: "PATCH",
-//         headers: {
-//             "Content-Type": "application/json"
-//         },
-//         body: JSON.stringify(filteredData)
-//     })
-//         .then(response => {
-//             if (response.ok) {
-//                 console.log("Success:", response);
-//                 updateForm.reset();
-//             } else {
-//                 console.error("Error:", response.status);
-//             }
-//         })
-//         .catch(error => {
-//             console.error("Error:", error);
-//             updateForm.reset();
-//         });
+    try {
+        const response = await fetch(`http://localhost:3000/waste/${postcode}`, {
+            method: "PATCH",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify(data)
+        });
 
-// });
+        if (response.ok) {
+            console.log("Success:", response);
+            updateForm.reset();
+        } else {
+            console.error("Error:", response.status);
+        }
+    } catch (error) {
+        console.error("Error:", error);
+    }
+});
+
 
 
 
