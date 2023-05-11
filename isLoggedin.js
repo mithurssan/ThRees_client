@@ -1,9 +1,9 @@
-const isLoggedIn = localStorage.getItem("token");
+const token = localStorage.getItem("token");
 const createPostLink = document.getElementById("createPost");
 const userStatus = document.getElementById("status");
 
-console.log(isLoggedIn);
-if (isLoggedIn) {
+console.log(token);
+if (token) {
     userStatus.textContent = "Log out";
 } else {
     createPostLink.style.display = "none";
@@ -13,7 +13,7 @@ userStatus.addEventListener("click", async (event) => {
     event.preventDefault();
 
     if (userStatus.textContent === "Log out") {
-        const response = await fetch(`http://localhost:3000/users/token/${isLoggedIn}`, {
+        const response = await fetch(`http://localhost:3000/users/token/${token}`, {
             method: 'DELETE'
         });
         if (response.ok) {
