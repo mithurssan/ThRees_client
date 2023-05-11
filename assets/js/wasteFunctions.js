@@ -98,3 +98,39 @@ function clearAddForm(){
     };
 
 };
+
+function toggleClass(elementId, className) {
+    let element = document.getElementById(elementId);
+    if (element.classList.contains(className)) {
+      element.classList.remove(className);
+    } else {
+      element.classList.add(className);
+    }
+  }
+  
+  function updateToggleButton() {
+    let updater = document.getElementById("postcode-updater");
+    let creater = document.getElementById("postcode-creater");
+    let toggler = document.getElementById("toggler");
+  
+    if (updater.classList.contains("addOrUpdate")) {
+      toggler.value = "Update";
+    } else {
+      toggler.value = "Add";
+    }
+  }
+  
+  document.getElementById("toggler").addEventListener("click", function() {
+    // Toggle class for postcode-updater
+    toggleClass("postcode-updater", "addOrUpdate");
+  
+    // Toggle class for postcode-creater
+    toggleClass("postcode-creater", "addOrUpdate");
+  
+    // Update the button text
+    updateToggleButton();
+  });
+  
+  // Initial button text update
+  updateToggleButton();
+  

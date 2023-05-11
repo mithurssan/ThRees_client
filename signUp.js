@@ -14,16 +14,33 @@ signupForm.addEventListener('submit', async (event) => {
     body: JSON.stringify({ username, password })
   });
 
+  const data = await response.json();
+
   if (response.ok) {
-    const user = await response.json();
-    console.log(user);
-    window.location.assign("login.html")
+    console.log(data);
+    setTimeout(() => {
+      window.location.assign("login.html")
+    }, 500);
+    showSignupAlert("Signing Up...", "success");
     // Do something with the created user
   } else {
-    const error = await response.text();
-    console.error(error);
+    showSignupAlert(data.error, "danger");
+    console.error(data.error);
     // Handle the error
   }
 });
 
+
+const showSignupAlert = (message, type) => {
+  const alertElement = document.createElement("div");
+  alertElement.classList.add("alert", `alert-${type}`);
+  alertElement.setAttribute("role", "alert");
+  alertElement.textContent = message;
+
+  signupForm.appendChild(alertElement);
+
+  setTimeout(() => {
+    alertElement.remove();
+  }, 1500);
+}
 
