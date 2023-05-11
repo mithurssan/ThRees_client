@@ -112,7 +112,8 @@ addSubmitForm.addEventListener('submit', async (e) => {
             });
 
     } else {
-        alert("Error: At least day between and collection date pair must be provided.");
+        showAlert("Error: At least day between and collection date pair must be provided.", "danger");
+        // alert("Error: At least day between and collection date pair must be provided.");
     }
 
 });
