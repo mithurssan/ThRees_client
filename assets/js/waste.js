@@ -14,12 +14,13 @@ postcodeForm.addEventListener('submit', (event) => {
     event.preventDefault();
     postcodeTitle.innerHTML = ""
     let postcode = document.getElementById('postcode-search').value;
-    postcodeTitle.innerHTML = postcode.toUpperCase();
     const url = `http://localhost:3000/waste/${postcode}`;
     fetch(url)
-        .then(response => response.json())
-        .then((data) => {
-            console.log(data);
+    .then(response => response.json())
+    .then((data) => {
+        console.log(data);
+        document.getElementById('house-img').style.display = 'none'
+        postcodeTitle.innerHTML = postcode.toUpperCase();
             showList.innerHTML = '';
             for (const key in data) {
 

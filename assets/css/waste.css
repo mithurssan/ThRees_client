@@ -8,7 +8,7 @@
     background-image: url(../../images/test-heroBanner.jpg);
     background-repeat: no-repeat;
     background-position: center;
-    height: 375px;
+    height: 355px;
     flex-direction: column;
 }
 #banner-text{
@@ -58,7 +58,6 @@ ul{
     display: flex;
     flex-direction: column;
     justify-content: space-around;
-    margin: 0 10rem;
 }
 
 .flex-container {
@@ -183,10 +182,23 @@ input[type='text'] {
 .result-container{
     height: 450px;
     text-align: center;
-    margin: 2rem;
+    margin: 2rem 10rem;
+
 
 }
 
 #location-marker-img{
     width: 8rem;
+}
+
+#house-img{
+    width: 4rem;
+}
+
+#postcode-creater{
+    background-image: radial-gradient(#475b632c 20%, transparent 20%),
+      radial-gradient(#475b632c 20%, transparent 20%);
+  background-color: #729B79;
+  background-position: 0 0, 50px 50px;
+  background-size: 100px 100px;
 }
