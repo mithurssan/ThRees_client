@@ -8,7 +8,7 @@ form.addEventListener('submit', async (event) => {
   
   try {
     const response = await fetch(`/api/users/${userId}`, {
-      method: 'PUT',
+      method: 'PATCH',
       body: formData
     });
     

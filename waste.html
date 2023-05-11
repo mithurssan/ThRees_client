@@ -14,6 +14,7 @@
   <script defer src="./assets/js/waste.js"></script>
   <script defer src="./assets/js/wasteFunctions.js"></script>
   <script defer src="https://kit.fontawesome.com/abdde26339.js" crossorigin="anonymous"></script>
+  <script defer src="./isLoggedin.js"></script>
   <link rel="shortcut icon" href="./images/logo_favicon.png" type="image/x-icon">
   <title>ThRees</title>
 </head>
@@ -24,7 +25,7 @@
       <a class="navbar-brand" href="index.html"><img src="./images/ThRees_Logo.png" alt="Logo"
           class="d-inline-block align-text-top logo-img" />
       </a>
-      <a class="nav-link" id="nav-title" aria-current="page" href="index.html">ThRees</a>
+      <a class="nav-link" id="nav-title" href="index.html">ThRees</a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo02"
         aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
@@ -32,16 +33,16 @@
       <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
         <ul class="navbar-nav ms-auto">
           <li class="nav-item">
-            <a class="nav-link" aria-current="page" href="index.html">Home</a>
+            <a class="nav-link" href="index.html">Home</a>
           </li>
           <li class="nav-item">
             <a class="nav-link active" aria-current="page" href="waste.html">Waste</a>
           </li>
-          <li class="nav-item">
-            <a class="nav-link">Create Post</a>
+          <li class="nav-item" id="createPost">
+            <a class="nav-link" href="./posts.html">Create Post</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link">Log In</a>
+            <a class="nav-link" id="status" href="./login.html">Log In</a>
           </li>
         </ul>
       </div>
@@ -113,7 +114,7 @@
 
     </div>
 
-    <div id="postcode-updater">
+<div id="postcode-updater">
       <h2>Update your area!</h2>
       <form action="patch" id="patch-form" class="flex-container-column">
         <label for="postcode-patch">Enter your postcode:</label>
