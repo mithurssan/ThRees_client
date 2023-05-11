@@ -87,7 +87,7 @@ addSubmitForm.addEventListener('submit', async (e) => {
         })
             .then(response => {
                 if (response.ok) {
-                    showAlert("Added", "success");
+                    showAlert("Added!", "success");
                     setTimeout(() => {
                         console.log("Success:", response);
                         addRecyclingForm.reset();
@@ -148,7 +148,7 @@ updateForm.addEventListener('submit', async (e) => {
         const dataField = await response.json();
 
         if (response.ok) {
-            showUpdateAlert("Updated", "success");
+            showUpdateAlert("Updated!", "success");
             setTimeout(() => {
                 console.log("Success:", response);
                 updateForm.reset();

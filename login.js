@@ -22,10 +22,11 @@ loginForm.addEventListener('submit', async (event) => {
         setTimeout(() => {
             window.location.assign("index.html");
         }, 500);
-        showLoginAlert("Logging In...", "Success");
+        showLoginAlert("Logging In...", "success");
     } else {
-        const error = await response.text();
-        console.error(error);
+        showLoginAlert(data.error, "danger");
+        // alert(data.error)
+        console.error(data.error);
     }
 });
 

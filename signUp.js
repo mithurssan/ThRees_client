@@ -14,17 +14,18 @@ signupForm.addEventListener('submit', async (event) => {
     body: JSON.stringify({ username, password })
   });
 
+  const data = await response.json();
+
   if (response.ok) {
-    const user = await response.json();
-    console.log(user);
+    console.log(data);
     setTimeout(() => {
       window.location.assign("login.html")
     }, 500);
-    showSignupAlert("Signing Up...", "Success");
+    showSignupAlert("Signing Up...", "success");
     // Do something with the created user
   } else {
-    const error = await response.text();
-    console.error(error);
+    showSignupAlert(data.error, "danger");
+    console.error(data.error);
     // Handle the error
   }
 });
