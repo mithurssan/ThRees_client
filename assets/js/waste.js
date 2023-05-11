@@ -16,11 +16,11 @@ postcodeForm.addEventListener('submit', (event) => {
     let postcode = document.getElementById('postcode-search').value;
     const url = `http://localhost:3000/waste/${postcode}`;
     fetch(url)
-    .then(response => response.json())
-    .then((data) => {
-        console.log(data);
-        document.getElementById('house-img').style.display = 'none'
-        postcodeTitle.innerHTML = postcode.toUpperCase();
+        .then(response => response.json())
+        .then((data) => {
+            console.log(data);
+            document.getElementById('house-img').style.display = 'none'
+            postcodeTitle.innerHTML = postcode.toUpperCase();
             showList.innerHTML = '';
             for (const key in data) {
 
@@ -80,25 +80,36 @@ addSubmitForm.addEventListener('submit', async (e) => {
         fetch("http://localhost:3000/waste", {
             method: "POST",
             headers: {
-                "Content-Type": "application/json"
+                "Content-Type": "application/json",
+                "Authorization": localStorage.getItem("token")
             },
             body: JSON.stringify(filteredData)
         })
-        .then(response => {
-            if (response.ok) {
-                console.log("Success:", response);
+            .then(response => {
+                if (response.ok) {
+                    showAlert("Added", "success");
+                    setTimeout(() => {
+                        console.log("Success:", response);
+                        addRecyclingForm.reset();
+                        addGeneralForm.reset();
+                        addCompostForm.reset();
 
-                addRecyclingForm.reset();
-                addGeneralForm.reset();
-                addCompostForm.reset();
-                clearAddForm();
-            } else {
-                alert("Error:", err.message);
-            }
-        })
-        .catch(error => {
-            alert("Error:", error.message);
-        });
+                        clearAddForm();
+                    }, 700);
+
+                } else {
+                    response.text().then(error => {
+                        const parseError = JSON.parse(error);
+                        showAlert(parseError.error, "danger");
+                    }).catch(error => {
+                        console.error(error);
+                    });
+                    // alert("Error:", err.message);
+                }
+            })
+            .catch(error => {
+                alert("Error:", error.message);
+            });
 
     } else {
         alert("Error: At least day between and collection date pair must be provided.");
@@ -127,16 +138,24 @@ updateForm.addEventListener('submit', async (e) => {
         const response = await fetch(`http://localhost:3000/waste/${postcode}`, {
             method: "PATCH",
             headers: {
-                "Content-Type": "application/json"
+                "Content-Type": "application/json",
+                "Authorization": localStorage.getItem("token")
             },
             body: JSON.stringify(data)
         });
 
+        const dataField = await response.json();
+
         if (response.ok) {
-            console.log("Success:", response);
-            updateForm.reset();
+            showUpdateAlert("Updated", "success");
+            setTimeout(() => {
+                console.log("Success:", response);
+                updateForm.reset();
+            }, 700);
         } else {
-            console.error("Error:", response.status);
+            showUpdateAlert(dataField.error, "danger");
+
+            // console.error("Error:", response.status);
         }
     } catch (error) {
         console.error("Error:", error);
@@ -156,3 +175,30 @@ function clearInput(formId) {
 function capitalise(str) {
     return str.charAt(0).toUpperCase() + str.slice(1);
 }
+
+const showAlert = (message, type) => {
+    const alertElement = document.createElement("div");
+    alertElement.classList.add("alert", `alert-${type}`);
+    alertElement.setAttribute("role", "alert");
+    alertElement.textContent = message;
+
+    addSubmitForm.appendChild(alertElement);
+
+    setTimeout(() => {
+        alertElement.remove();
+    }, 1500);
+}
+
+const showUpdateAlert = (message, type) => {
+    const alertElement = document.createElement("div");
+    alertElement.classList.add("alert", `alert-${type}`);
+    alertElement.setAttribute("role", "alert");
+    alertElement.textContent = message;
+
+    updateForm.appendChild(alertElement);
+
+    setTimeout(() => {
+        alertElement.remove();
+    }, 1500);
+}
+
