@@ -5,7 +5,7 @@
     display: flex;
     justify-content:space-around;
     align-items: center;
-    background-image: url(../../images/hero-banner.jpg);
+    background-image: url(../../images/test-heroBanner.jpg);
     background-repeat: no-repeat;
     background-position: center;
     height: 355px;
@@ -63,6 +63,8 @@ ul{
 .flex-container {
     display: flex;
     flex-direction: column;
+    text-align: center;
+    /* height: 700px; */
 }
 
 input {
@@ -196,19 +198,106 @@ input[type='text'] {
 }
 
 #postcode-creater{
-    background-image: radial-gradient(#475b632c 20%, transparent 20%),
-      radial-gradient(#475b632c 20%, transparent 20%);
-  background-color: #729B79;
-  background-position: 0 0, 50px 50px;
-  background-size: 100px 100px;
+    background-image: linear-gradient(315deg, #729B79 0%, #475B63 67%, #729B79 100%);
+
   padding: 2rem 20rem;
+  height: 600px;
+}
+
+.holder{
+    background-color:#f4f4f4;
+    height: 500px;
+    border-radius: 10px;
+
+
+}
+
+
+form#add-submit-new{
+    margin:3rem;
+    height: 100px;
+}
+
+#add-postcode-h2{
+    margin-top: 1.5rem;
 }
 
 #postcode-updater{
-    background-image: radial-gradient(#475b632c 20%, transparent 20%),
-      radial-gradient(#475b632c 20%, transparent 20%);
-  background-color: #729B79;
-  background-position: 0 0, 50px 50px;
-  background-size: 100px 100px;
+    background-image: linear-gradient(315deg, #729B79 0%, #475B63 67%, #729B79 100%);
+
   padding: 2rem 20rem;
+  text-align: center;
+}
+
+#postcode-updater > form {
+    padding: 3rem;
+    background-color: #f4f4f4;
+    border-radius: 10px;
+}
+
+#postcode-patch{
+    align-self: center;
+}
+input[type='number']{
+    width: 100px;
+}
+
+select{
+    width: 300px;
+    align-self: center;
+}
+
+input[type='date']{
+    width: 200px;
+    display: inline;
+}
+
+/* input[type='submit'].nextBack{
+    align-self:;
+} */
+
+input.add-back-btn{
+    width: 200px;
+}
+
+input[type='submit']{
+    width: 200px;
+    align-self: center;
+}
+
+.add-form > input{
+    align-self: center;
+    height: 40px;
+    border-radius: 5px;
+}
+
+#add-submit-new > input {
+    align-self: center;
+    height: 35px;
+    border-radius: 5px;
+}
+
+#patch-form > input {
+    align-self: center;
+    height: 35px;
+    border-radius: 5px;
+
+}
+#patch-form > select {
+    align-self: center;
+    height: 35px;
+    border-radius: 5px;
+
+
+}
+
+.addOrUpdate{
+    display: none;
+}
+
+input#toggler{
+    width: 10rem;
+    height: 2.5rem;
+    align-self: center;
+    border-radius: 8px;
 }
