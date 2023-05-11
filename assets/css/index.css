@@ -4,6 +4,10 @@
     padding: 30px;
 }
 
+h1{
+    text-align: center;
+}
+
 .category-title {
     color: black;
     text-align: center;

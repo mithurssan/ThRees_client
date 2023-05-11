@@ -31,8 +31,20 @@ body{
 #navbar-background{
     background-image: url(../../images/test-heroBanner.jpg);
     background-repeat: no-repeat;
-    background-position: top;
-    
+    background-position: top;    
+}
+
+.hero-banner {
+    background-color: #BACDB0;
+    /* display: flex;
+    justify-content:space-around; */
+    align-items: center;
+    background-image: url(../../images/test-heroBanner.jpg);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-position-y: -90px;
+    height: 355px;
+    /* flex-direction: column; */
 }
 
 .nav-link {
@@ -54,3 +66,18 @@ footer{
     background: #475B63;
     height: 100px;
 }
+
+body{
+    background-color: #fff1ea;
+}
+
+h2, h4{
+    font-family: 'Josefin Sans', sans-serif;
+}
+
+h1{
+    font-family: 'Vollkorn', serif;
+    font-family: 'Vollkorn', serif;
+    font-weight: 900;
+}
+
