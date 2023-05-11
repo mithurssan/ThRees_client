@@ -5,7 +5,7 @@
     display: flex;
     justify-content:space-around;
     align-items: center;
-    background-image: url(../../images/test-heroBanner.jpg);
+    background-image: url(../../images/hero-banner.jpg);
     background-repeat: no-repeat;
     background-position: center;
     height: 355px;
@@ -41,12 +41,12 @@ ul{
     list-style-type: none;
 }
 
-#navbar-background{
+/* #navbar-background{
     background-image: url(../../images/test-heroBanner.jpg);
     background-repeat: no-repeat;
     background-position: top;
     
-}
+} */
 
 
 .flex-container-column {
