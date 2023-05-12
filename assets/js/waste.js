@@ -14,7 +14,7 @@ postcodeForm.addEventListener('submit', (event) => {
     event.preventDefault();
     postcodeTitle.innerHTML = ""
     let postcode = document.getElementById('postcode-search').value;
-    const url = `http://localhost:3000/waste/${postcode}`;
+    const url = `https://threes-86h8.onrender.com/waste/${postcode}`;
     fetch(url)
         .then(response => response.json())
         .then((data) => {
@@ -77,7 +77,7 @@ addSubmitForm.addEventListener('submit', async (e) => {
     );
 
     if (hasWasteData) {
-        fetch("http://localhost:3000/waste", {
+        fetch("https://threes-86h8.onrender.com/waste", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",
@@ -136,7 +136,7 @@ updateForm.addEventListener('submit', async (e) => {
     }
 
     try {
-        const response = await fetch(`http://localhost:3000/waste/${postcode}`, {
+        const response = await fetch(`https://threes-86h8.onrender.com/waste/${postcode}`, {
             method: "PATCH",
             headers: {
                 "Content-Type": "application/json",
