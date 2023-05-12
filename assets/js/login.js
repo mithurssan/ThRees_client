@@ -20,7 +20,7 @@ loginForm.addEventListener('submit', async (event) => {
     if (response.ok) {
         localStorage.setItem("token", data.token);
         setTimeout(() => {
-            window.location.assign("index.html");
+            window.location.assign("../index.html");
         }, 500);
         showLoginAlert("Logging In...", "success");
     } else {

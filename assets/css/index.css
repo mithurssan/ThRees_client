@@ -33,25 +33,25 @@ h1{
 }
 
 .category-all {
-    background-image: url("../images/categories/all.png");
+    background-image: url("../../images/categories/all.png");
 }
 
 .category-environment {
-    background-image: url("../images/categories/environment.jpg");
+    background-image: url("../../images/categories/environment.jpg");
 }
 
 .category-gardening {
-    background-image: url("../images/categories/gardening.jpg");
+    background-image: url("../../images/categories/gardening.jpg");
 }
 
 .category-paper {
-    background-image: url("../images/categories/paper.jpg");
+    background-image: url("../../images/categories/paper.jpg");
 }
 
 .category-plastic {
-    background-image: url("../images/categories/plastic.jpg");
+    background-image: url("../../images/categories/plastic.jpg");
 }
 
 .category-wood {
-    background-image: url("../images/categories/wood.jpg");
+    background-image: url("../../images/categories/wood.jpg");
 }

@@ -20,13 +20,13 @@ userStatus.addEventListener("click", async (event) => {
             localStorage.removeItem("token");
             userStatus.textContent === "Log In";
             setTimeout(() => {
-                window.location.assign("index.html");
+                window.location.assign("../index.html");
             }, 500);
             showLogoutAlert("Logging Out...", "danger");
         }
     } else {
         userStatus.textContent === "Log In";
-        window.location.assign("login.html");
+        window.location.assign("/pages/login.html");
     }
 });
 
