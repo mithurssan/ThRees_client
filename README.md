@@ -9,7 +9,7 @@
     <li><a href="#Process">Process</a></li>
     <li><a href="#Challenges">Challenges & Wins</a>
     <li><a href="#Contribution">Contribution</a></li>
-    <li><a href="#License">License</a></li>
+    <li><a href="#Licence">Licence</a></li>
   </ol>
 </details>
 
@@ -71,6 +71,6 @@ Wireframes were made on Figma and pages were implemented via HTML, CSS and Boots
 * Azeem Falade (<https://github.com/ABF22>)
 
 
-# License
+# Licence
 
 * [MIT Licence](https://opensource.org/license/mit/)
