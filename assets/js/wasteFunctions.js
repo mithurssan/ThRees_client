@@ -44,7 +44,7 @@ addCompostForm.addEventListener('submit', async (e) => {
     addCompostForm.style.display = 'none'
     addSubmitForm.style.display = 'flex'
     for (const key in addData) {
-        if (key !== 'postcode') {
+        if (key !== 'waste_postcode' && addData[key] !== null && addData[key] !== undefined && addData[key] !== '') {
             const listItem = document.createElement('li');
             listItem.textContent = `${key}: ${addData[key]}`;
             addList.appendChild(listItem);
