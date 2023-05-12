@@ -1,0 +1,21 @@
+{
+  "name": "threes_client",
+  "version": "1.0.0",
+  "description": "",
+  "main": "edit.js",
+  "scripts": {
+    "test": "jest --watchAll",
+    "coverage": "jest --coverage"
+  },
+  "jest": {
+    "testPathIgnorePatterns": [
+      "./__tests__/helpers.js"
+    ]
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "jest": "^29.5.0",
+    "jsdom": "^22.0.0"
+  }
+}

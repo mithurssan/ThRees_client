@@ -1,0 +1,97 @@
+/* Style for the body element */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #729B79;
+  }
+  
+  /* Style for the header element */
+  header {
+    background-color: #BACDB0;
+    color: white;
+    padding: 10px;
+  }
+  
+  /* Style for the h1 element */
+  h1 {
+    margin: 0;
+    font-size: 36px;
+  }
+  
+  /* Style for the main element */
+  main {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #729B79;
+  }
+  
+  /* Style for the section element */
+  section {
+    margin-bottom: 20px;
+  }
+  
+  /* Style for the h2 element */
+  h2 {
+    margin: 0;
+    font-size: 24px;
+  }
+  
+  /* Style for the p element */
+  p {
+    margin-top: 0;
+  }
+  
+  /* Style for the form element */
+  form {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  /* Style for the label element */
+  label {
+    margin-bottom: 5px;
+  }
+  
+  /* Style for the input element */
+  input {
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #475B63;
+    border-radius: 4px;
+    font-size: 16px;
+  }
+  
+  /* Style for the button element */
+  button {
+    padding: 10px;
+    background-color: #2E2C2F;
+    color: #729B79;
+    border: none;
+    border-radius: 4px;
+    font-size: 16px;
+    cursor: pointer;
+  }
+  
+  /* Style for the ul element */
+  ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+  
+  /* Style for the li element */
+  li {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #ccc;
+    padding: 10px;
+  }
+  
+  /* Style for the img element */
+  img {
+    max-width: 100%;
+  }
+  

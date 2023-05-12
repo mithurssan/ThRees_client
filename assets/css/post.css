@@ -1,0 +1,131 @@
+@import url("base.css");
+
+.hero-banner {
+    background-color: #BACDB0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* background-image: url(../images/hero-banner.jpg); */
+    background-repeat: no-repeat;
+    background-position: center;
+    /* width: 100vw;
+    height: 18rem; */
+    flex-direction: column;
+}
+
+/* Create post form */
+
+.post-form-container {
+    margin-top: 15px;
+    display: flex;
+    justify-content: center;
+    padding: 30px;
+}
+
+form {
+    position: relative;
+    font-size: 20px;
+    background-color: #BACDB0;
+    padding: 65px 35px;
+    margin: 50px;
+    border-radius: 20px;
+}
+
+.form-box {
+    width: 100%;
+    display: flex;
+    margin-bottom: 15px;
+}
+
+form label {
+    justify-content: end;
+    margin-right: 25px;
+    width: 10%;
+    display: flex;
+}
+
+.form-box input,
+.form-box textarea {
+    width: 600px;
+}
+
+#submitBtn {
+    position: absolute;
+    bottom: 15px;
+    right: 15px;
+}
+
+.alert {
+    padding: 5px;
+    width: 50%;
+    position: absolute;
+    bottom: 0;
+    right: 25%;
+    text-align: center;
+}
+
+.dropdown-item:hover {
+    cursor: pointer;
+}
+
+
+
+/* Post container */
+
+.postDataContainer {
+    position: relative;
+    margin: 10px 27%;
+    margin-bottom: 10px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    background-color: #BACDB0;
+}
+
+.post-header {
+    margin-left: 10px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.post-main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.title {
+    font-weight: bold;
+    font-size: 20px;
+    margin-bottom: 5px;
+    text-decoration: underline;
+}
+
+.date-time {
+    font-size: 15px;
+    margin-left: 20px;
+    color: #585656;
+}
+
+.category-name {
+    font-size: 20px;
+    color: #585656;
+    margin-bottom: 5px;
+    margin-right: 15px;
+    align-items: end;
+}
+
+.image {
+    border: 2px solid black;
+    align-self: center;
+    max-width: 50%;
+    height: auto;
+    margin-bottom: 5px;
+    border-radius: 10px;
+}
+
+.content {
+    font-size: 20px;
+    margin-bottom: 5px;
+    padding: 15px;
+}
