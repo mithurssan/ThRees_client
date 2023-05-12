@@ -19,7 +19,7 @@ const postForm = async (post_title, post_content, post_category, post_image) => 
     formData.append("post_category", post_category);
     formData.append("post_image", post_image);
 
-    const response = await fetch("http://localhost:3000/posts", {
+    const response = await fetch("https://threes-86h8.onrender.com/posts", {
         method: "POST",
         headers: {
             "Authorization": localStorage.getItem("token")

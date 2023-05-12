@@ -17,7 +17,7 @@ all.addEventListener("click", () => {
 })
 
 const viewPosts = async () => {
-    const response = await fetch("http://localhost:3000/posts");
+    const response = await fetch("https://threes-86h8.onrender.com/posts");
     const data = await response.json();
     if (data.error) {
         alert(data.error);
@@ -134,8 +134,8 @@ plastic.addEventListener("click", () => {
 })
 
 const viewByCategory = async (category) => {
-
-    const response = await fetch(`http://localhost:3000/posts/search/${category}`);
+    
+    const response = await fetch(`https://threes-86h8.onrender.com/posts/search/${category}`);
     const data = await response.json();
     if (data.error) {
         alert(data.error);

@@ -11,9 +11,9 @@ if (token) {
 
 userStatus.addEventListener("click", async (event) => {
     event.preventDefault();
-
+    
     if (userStatus.textContent === "Log out") {
-        const response = await fetch(`http://localhost:3000/users/token/${token}`, {
+        const response = await fetch(`https://threes-86h8.onrender.com/users/token/${token}`, {
             method: 'DELETE'
         });
         if (response.ok) {
