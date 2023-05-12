@@ -14,10 +14,10 @@
 </details>
 
 <!-- ABOUT THE PROJECT -->
-# ThRees
-
-With ThRees you can track which days your recycling, compost and general waste is collected in you local postcode. 
-It also builds a sense of community as when you’ve got some spare time, and some spare rubbish, you can learn to make new things and reuse to save the planet from other users. You yourself can also make posts to encourage others and share your knowledge! 
+# ThRees - Client
+![bannerimg](./test-heroBanner.jpg)
+With ThRees you can track which days your recycling, compost and general waste is collected in your local postcode. 
+It also builds a sense of community as when you’ve got some spare time, and some spare rubbish, you can learn from other users to make new things and reuse to save the planet. You can also make posts to encourage others and share your knowledge too! 
 
 
 <!-- Installation & usage -->
