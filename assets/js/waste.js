@@ -179,6 +179,7 @@ function capitalise(str) {
 
 const showAlert = (message, type) => {
     const alertElement = document.createElement("div");
+    alertElement.classList.add("errorHandlerAdd");
     alertElement.classList.add("alert", `alert-${type}`);
     alertElement.setAttribute("role", "alert");
     alertElement.textContent = message;
@@ -192,6 +193,7 @@ const showAlert = (message, type) => {
 
 const showUpdateAlert = (message, type) => {
     const alertElement = document.createElement("div");
+    alertElement.classList.add("errorHandler");
     alertElement.classList.add("alert", `alert-${type}`);
     alertElement.setAttribute("role", "alert");
     alertElement.textContent = message;
